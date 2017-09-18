@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>松鼠</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{background-color:#fafafa;}
+	.beaver{
+		width: 50%;
+		position: relative;
+		left: 38%;
+		margin-top: 70px;
+	}
+	.left-ear, .right-ear{
+		height: 80px;
+		width: 80px;
+		background-color: #d9a679;
+		border-radius: 50%;
+		position: absolute;
+		z-index: -1;
+	}
+	.left-ear::after{
+		content: '';
+		height: 62px;
+		width: 62px;
+		background-color: #f6dec4;
+		position: absolute;
+		border-radius: 50%;
+		z-index: -1;
+		top: 10px;
+		left: 10px;
+	}
+	.right-ear{left:148px;}
+	.right-ear::after{
+		content: '';
+		height: 62px;
+		width: 62px;
+		background-color: #f6dec4;
+		position: absolute;
+		border-radius: 50%;
+		z-index: -1;
+		top: 10px;
+		left: 10px;
+	}
+	.face{
+		width: 230px;
+		height: 230px;
+		background-color: #d9a679;
+		border-radius: 50% 50% 35% 35%;
+		z-index: 4;
+	}
+	.left-eye, .right-eye{
+		width: 30px;
+		height: 30px;
+		background-color: #62260a;
+		border-radius: 50%;
+		position: absolute;
+		top: 80px;
+	}
+	.left-eye{left:60px;}
+	.left-eye::before{
+		content: '';
+		width: 30px;
+		height: 12px;
+		background-color: #f6dec4;
+		position: absolute;
+		border-radius: 70% 30%;
+		top: -40px;
+		transform: rotate(-15deg);
+		left: -15px;
+	}
+	.pupil-eye{
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background-color: #fff;
+		position: absolute;
+		top: 2px;
+		left: 12px;
+	}
+	.right-eye{left:140px;}
+	.right-eye::before{
+		content: '';
+		width: 30px;
+		height: 12px;
+		background-color: #f6dec4;
+		position: absolute;
+		border-radius: 70% 30%;
+		top: -30px;
+		transform: rotate(25deg);
+		left: 15px;
+	}
+	.wink-eye{
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: #d9a679;
+		position: absolute;
+		top: 9px;
+		left: -2px;
+	}
+	.beaver-cheeks{
+		width: 30px;
+		height: 18px;
+		background-color: #e27850;
+		border-radius: 70%;
+		position: absolute;
+		top: 140px;
+		left: 32px;
+	}
+	.beaver-cheeks::after{
+		content: '';
+		width: 30px;
+		height: 18px;
+		background-color: #e27850;
+		position: absolute;
+		left: 138px;
+		border-radius: 70%;
+	}
+	.beaver-nose{
+		width: 60px;
+		height: 40px;
+		background-color: #62260a;
+		position: absolute;
+		top: 130px;
+		left: 86px;
+		border-radius: 5px 50px 5px;
+		transform: rotate(150deg);
+		z-index: 7;
+	}
+	.beaver-mouse{
+		width: 40px;
+		height: 40px;
+		background-color: #d9a679;
+		border: 2px solid #62260a;
+		border-top-color: transparent;
+		border-right-color: transparent;
+		transform: rotate(-43deg);
+		border-radius: 50%;
+		position: absolute;
+		top: 142px;
+		left: 72px;
+		z-index: 6;
+	}
+	.beaver-mouse::after{
+		content: '';
+		width: 40px;
+		height: 40px;
+		background-color: #d9a679;
+		border: 2px solid #62260a;
+		border-top-color: transparent;
+		border-right-color: transparent;
+		border-radius: 50%;
+		position: absolute;
+		top: 26px;
+		left: 27px;
+		transform: rotate(-4deg);
+		z-index: 6;
+	}
+	.beaver-teeth{
+		width: 15px;
+		height: 24px;
+		background-color: #fff;
+		position: absolute;
+		border-bottom-right-radius: 8px;
+		top: 175px;
+		left: 99px;
+		z-index: 5;
+	}
+	.beaver-teeth::after{
+		content: '';
+		width: 15px;
+		height: 24px;
+		background-color: #fff;
+		position: absolute;
+		border-bottom-left-radius: 8px;
+		top: 0;
+		left: 15px;
+		z-index: 5;
+	}
+	.beaver-body{
+		width: 200px;
+		height: 180px;
+		background-color: #d9a679;
+		border-radius: 50% 50% 35% 35%;
+		position: relative;
+		left: 15px;
+		top: -10px;
+	}
+	.beaver-body::after{
+		content: '';
+		width: 115px;
+		height: 120px;
+		background-color: #f6dec4;
+		border-radius: 50% 50% 35% 35%;
+		position: absolute;
+		top: 32px;
+		left: 44px;
+	}
+	.beaver-hands{
+		width: 30px;
+		height: 60px;
+		background-color: #d9a679;
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		position: absolute;
+		top: 60px;
+		left: 36px;
+		z-index: 8;
+		transform: rotate(-50deg);
+	}
+	.beaver-hands::after{
+		content: '';
+		width: 30px;
+		height: 60px;
+		background-color: #d9a679;
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		position: absolute;
+		top: 68px;
+		left: 65px;
+		transform: rotate(92deg);
+	}
+	.beaver-foot{
+		width: 100px;
+		height: 20px;
+		background-color: #d9a679;
+		position: absolute;
+		top: 160px;
+		left: -27px;
+		border-bottom-left-radius: 18%;
+		border-top-left-radius: 80%;
+	}
+	.beaver-foot::after{
+		content: '';
+		width: 100px;
+		height: 20px;
+		background-color: #d9a679;
+		position: absolute;
+		left: 163px;
+		border-bottom-right-radius: 18%;
+		border-top-right-radius: 80%;
+	}
+	.beaver-legone{
+		width: 52px;
+		height: 80px;
+		background-color: #d9a679;
+		position: absolute;
+		top: 90px;
+		left: -24px;
+		border-top-left-radius: 70%;
+		transform: rotate(-35deg);
+	}
+	.beaver-legtwo{
+		width: 56px;
+		height: 80px;
+		background-color: #d9a679;
+		position: absolute;
+		top: 90px;
+		left: 172px;
+		border-top-right-radius: 70%;
+		transform: rotate(30deg);
+	}
+	.beaver-tail{
+		height:300px;
+		width: 180px;
+		background-color: #411605;
+		border-radius: 40%;
+		transform: rotate(-45deg);
+		position: absolute;
+		z-index: -5;
+		top: -150px;
+		right: 151px;
+		overflow: hidden;
+	}
+	.tail-strip1{
+		position: absolute;
+		top: 55%;
+		left: -65%;
+		width: 200%;
+		height: 100%;
+		background: transparent;
+		border-radius: 50%;
+		box-shadow: 1px 0px 1px 9px rgba(42,8,0,0.6);
+	}
+	.tail-strip2{
+		position: absolute;
+		top: 32%;
+		left: -65%;
+		width: 200%;
+		height: 100%;
+		background: transparent;
+		border-radius: 50%;
+		box-shadow: 0px 0px 1px 9px rgba(42,8,0,0.6);
+	}
+	.tail-strip3{
+		position: absolute;
+		top: 12%;
+		left: -65%;
+		width: 200%;
+		height: 100%;
+		background: transparent;
+		border-radius: 50%;
+		box-shadow: 0px 0px 1px 9px rgba(42,8,0,0.6);
+	}
+	.tail-strip-vertical1{
+		position: absolute;
+		top: -30%;
+		left: -160%;
+		width: 200%;
+		height: 130%;
+		border-radius: 50%;
+		box-shadow: 0px 1px 1px 8px rgba(42,8,0,0.8);
+	}
+	.tail-strip-vertical2{
+		position: absolute;
+		top: -30%;
+		left: -120%;
+		width: 200%;
+		height: 130%;
+		border-radius: 50%;
+		box-shadow: 0px 1px 1px 8px rgba(42,8,0,0.8);
+	}
+</style>
+</head>
+<body>
+    	<div class="beaver">
+    		<div class="beaver-head">
+    		<div class="beaver-ears">
+    		<div class="left-ear"></div>
+    		<div class="right-ear"></div>
+    		</div>
+    		<div class="face">
+    		<div class="beaver-eyes">
+    		<div class="left-eye">
+    		<div class="pupil-eye"></div>
+    		</div>
+    		<div class="right-eye">
+    		<div class="wink-eye"></div>
+    		</div>
+    		</div>
+    		<div class="beaver-cheeks"></div>
+    		<div class="beaver-nose"></div>
+    		<div class="beaver-mouse"></div>
+    		<div class="beaver-teeth"></div>
+    		</div>
+    		</div>
+    		<div class="beaver-body">
+    		<div class="beaver-hands"></div>
+    		<div class="beaver-legone"></div>
+    		<div class="beaver-legtwo"></div>
+    		<div class="beaver-foot"></div>
+    		<div class="beaver-tail">
+    			<div class="tail-strip1"></div>
+    			<div class="tail-strip2"></div>
+    			<div class="tail-strip3"></div>
+    			<div class="tail-strip-vertical1"></div>
+    			<div class="tail-strip-vertical2"></div>
+    		</div>
+    		</div>
+    	</div>
+</body>
+</html>
