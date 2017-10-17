@@ -68,7 +68,7 @@ img{border:0;}
 .dyxj-news{width:6.4rem;height: 1.2rem;background: #f8f8f8;margin:0.2rem auto;
 	box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;padding:0.15rem 0.2rem;}
 .dyxj-news .newsimg{width:1.2rem;height: 0.9rem;border-right:2px solid #ccc;}
-
+.dyxj-news .newsimg img{width:0.95rem;height: 0.9rem;display: block;}
 /* gundongstart */
 .ydxj-gd{width:4.4rem;height:0.9rem;padding-left:0.3rem;overflow: hidden;}
 .ydxj-gd li{line-height: 0.45rem;height: 0.45rem;overflow: hidden;}
