@@ -15,7 +15,7 @@ img{border:0;}
 
 /*移动专题幻灯片中宽度必须是百分比包括上面的父级元素*/
 
-body{background: #7f8082;}
+/* body{background: #7f8082;} */
 .box{width:100%; margin:0 auto;  position:relative; max-width:6.4rem; min-width:3.2rem; }
 
 .box1,.box2,.box3,.box4,.box5,.box6{ width:100%; overflow:hidden; margin:0 auto 0 auto;}
