@@ -42,5 +42,19 @@ ul{overflow:hidden;-webkit-margin-end:0;-webkit-margin-start:0;-webkit-margin-be
 <script type="text/javascript" src="http://swt.0571mayo.com/js/superslide.js"></script>	
 <script type="text/javascript" src="ccc.js" ></script>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+jQuery(".man_banner").slide({titCell:".hd ul",mainCell:".bd ul",effect:"left",autoPlay:true,autoPage:true,delayTime:800,triggerTime:0});
+
+$(".man_banner").hover(
+	function(){
+$(".man_banner > .prev").css({"transition":"All 0.5s ease-in-out","-webkit-transition":"All 0.5s ease-in-out","-moz-transition":"All 0.5s ease-in-out","-o-transition":"All 0.5s ease-in-out","transform":"translateX(175px)","-webkit-transform":"translateX(175px)","-moz-transform":"translateX(175px)","-o-transform":"translateX(175px)","-ms-transform":"translateX(175px)"});
+$(".man_banner > .next").css({"transition":"All 0.5s ease-in-out","-webkit-transition":"All 0.5s ease-in-out","-moz-transition":"All 0.5s ease-in-out","-o-transition":"All 0.5s ease-in-out","transform":"translateX(-175px)","-webkit-transform":"translateX(-175px)","-moz-transform":"translateX(-175px)","-o-transform":"translateX(-175px)","-ms-transform":"translateX(-175px)"})},
+	function(){
+$(".man_banner > .prev").css({"transition":"All 0.5s ease-in-out","-webkit-transition":"All 0.5s ease-in-out","-moz-transition":"All 0.5s ease-in-out","-o-transition":"All 0.5s ease-in-out","transform":"translateX(-56px)","-webkit-transform":"translateX(-56px)","-moz-transform":"translateX(-56px)","-o-transform":"translateX(-56px)","-ms-transform":"translateX(-56px)"});
+$(".man_banner > .next").css({"transition":"All 0.5s ease-in-out","-webkit-transition":"All 0.5s ease-in-out","-moz-transition":"All 0.5s ease-in-out","-o-transition":"All 0.5s ease-in-out","transform":"translateX(56px)","-webkit-transform":"translateX(56px)","-moz-transform":"translateX(56px)","-o-transform":"translateX(56px)","-ms-transform":"translateX(56px)"})});
+});
+
+</script>
 </body>
 </html>
