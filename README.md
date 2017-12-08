@@ -6,6 +6,6 @@ http://github.liumianti.top/css3.github.io/CSSbird.html
 css3动画  立体 3d效果
 http://github.liumianti.top/css3.github.io/css%203d.html
 
-## css3.github.io
+## 查看效果
 http://htmlpreview.github.io/?
 
