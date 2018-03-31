@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>CSS3 实现突破轮播</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+*{margin: 0;padding: 0;}
+	#frame{
+		position: absolute;
+		width: 300px;
+		height: 200px;
+		overflow: hidden;
+		border-radius: 5px;
+		margin: 50px auto;
+		left: 40%;
+	}
+	#dis{
+		position: absolute;
+		left: -50px;
+		top: -10px;
+		opacity: .5;
+	}
+	#dis li{
+		display: inline-block;
+		width: 200px;
+		height: 20px;
+		margin: 0 50px;
+		float: left;
+		text-align: center;
+		color: #fff;
+		border-radius: 10px;
+		background: #000;
+	}
+	#photos img{
+		float: left;
+		width: 300px;
+		height: 200px;
+		background: #eee;
+		box-sizing: border-box;
+		border: 1px solid #000;
+		text-align: center;
+		line-height: 200px;
+	}
+	#photos{
+		position: absolute;
+		z-index: 9;
+		width: calc(300px * 4);
+		/* 修改图片数量的话需要修改下面的动画参数 */
+	}
+	.play{
+		animation: ma 20s ease-out infinite alternate;
+		-webkit-animation: ma 20s ease-out infinite alternate;
+	}
+	@keyframes ma{
+		0%,25%{
+			margin-left: 0px;
+		}
+		30%,50%{
+			margin-left: -300px;
+		}
+		55%,75%{
+			margin-left: -600px;
+		}
+		80%,100%{
+			margin-left: -900px;
+		}
+	}
+		@keyframes ma{
+		0%,25%{
+			margin-left: 0px;
+		}
+		30%,50%{
+			margin-left: -300px;
+		}
+		55%,75%{
+			margin-left: -600px;
+		}
+		80%,100%{
+			margin-left: -900px;
+		}
+	}
+</style>
+</head>
+<body>
+    <div id="frame">
+    	<div id="photos" class="play">
+    		<img src="#" alt="1" />
+    		<img src="#" alt="2" />
+    		<img src="#" alt="3" />
+    		<img src="#" alt="4" />
+    	</div>
+    	<ul id="dis">
+    		<li>1</li>
+    		<li>2</li>
+    		<li>3</li>
+    		<li>4</li>
+    	</ul>
+    </div>
+</body>
+</html>
