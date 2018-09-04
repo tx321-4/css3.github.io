@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>行驶的自行车</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	html,body,div,span.applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,addres,big,cite,code,
+	del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,
+	b,u,i,center,dl,dt,dd,ol,ul,li,
+	fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,enbed,
+	figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font: inherit;
+		font-size: 100%;
+		vertical-align: baseline;
+	}
+	html{
+		line-height: 1;
+	}
+	ol,ul{
+		list-style: none;
+	}
+	table{
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	caption,th,td{
+		text-align: left;
+		font-weight: normal;
+		vertical-align: middle;
+	}
+	q, blockquote{
+		quotes: none;
+	}
+	q:before, q:afater, blockquote:before, blockquote:after{
+		content: '';
+		content: none;
+	}
+	a img{
+		border: none;
+	}
+	article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{
+		display: block;
+	}
+	body{
+		position: relative;
+		background: linear-gradient(to bottom, #edc9afm #d68347);
+	}
+	*{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	.scenary{
+		width: 100%;
+		height: 600px;
+		overflow: hidden;
+		position: relative;
+		background: linear-gradient(to top, #c9e9f6, #186c8e);
+		border-bottom: 3px solid #eac1a3;
+	}
+	.scenary:before{
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		left: 45%;
+		bottom: 0;
+		border: 400px solid transparent;
+		border-bottom: 400px solid #78614e;
+		-webkit-animation: move linear 30s infinite;
+		-moz-animation: move linear 30s infinite;
+		animation: move linear 30s infinite;
+	}
+	.scenary:after{
+		content: '';
+		width: 0;
+		height: 0;
+		margin-left: -150px;
+		position: absolute;
+		left: 45%;
+		bottom: 0;
+		border: 250px solid transparent;
+		border-bottom: 250px solid #9a7c64;
+		-webkit-animation: move linear 30s infinite;
+		-moz-animation: move linear 30s infinite;
+		animation: move linear 30s infinite;
+
+	}
+	.thing{
+		width: 40px;
+		height: 90px;
+		display: block;
+		margin: auto;
+		position: relative;
+		z-index: 20;
+		top: 400px;
+		border-radius: 50% 50% 0px 0px ;
+		background: #3a7939;
+		-webkit-animation: popUp linear 2s 2s;
+		-moz-animation: popUp linear 2s 2s;
+		animation: popUp linear 2s 2s;
+	}
+	.thing:before{
+		content: '';
+		width: 10px;
+		height: 25px;
+		position: absolute;
+		left: 7px;
+		top: 25px;
+		border-radius: 50%;
+		background: #333;
+		box-shadow: 15px  0px 0px #333;
+	}
+	.thing:after{
+		content: '';
+		width: 10px;
+		height: 25px;
+		position: absolute;
+		left: 5px;
+		top: 60px;
+		border-radius: 50%;
+		background: #265025;
+	}
+	.thing > *:before{
+		content: "WOooo!";
+		width: 90px;
+		height: 55px;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 105%;
+		border-radius: 50%;
+		background: white;
+		font-size: 15px;
+		font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+		text-align: center;
+		line-height: 55px;
+		opacity: 0;
+		-webkit-animation: fadeIn ease .5s 2.7s;
+		-moz-animation: fadeIn ease .5s 2.7s;
+		animation: fadeIn ease .5s 2.7s;
+	}
+	.thing > *:after{
+		content: "";
+		width: 0;
+		height: 0;
+		position: absolute;
+		left: 120%;
+		top: 20px;
+		border: 20px solid  transparent;
+		border-left: 10px soli #fff;
+		opacity: 0;
+		-webkit-animation: fadeIn ease .5s 2.7s;
+		-moz-animation: fadeIn ease .5s 2.7s;
+		animation: fadeIn ease .5s 2.7s;
+
+	}
+	.clouds{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		-webkit-animation: move linear 15s infinite;
+		-moz-animation: move linear 15s infinite;
+		animation: move linear 15s infinite;
+	}
+	.cloud{
+		width: 130px;
+		height: 70px;
+		position: absolute;
+		border-radius: 50%;
+		border-bottom: 2px solid #f1f1f1;
+		background: #fff;
+		-webkit-box-shadow: -10px -5px 0px white;
+		-moz-box-shadow: -10px -5px 0px white;
+		box-shadow: -10px -5px 0px white;
+		opacity: .97;
+	}
+	.cloud:before{
+		content: '';
+		width: 60px;
+		height: 30px;
+		position: absolute;
+		top: 40px;
+		left: -20px;
+		border-radius: 50%;
+		background: #fff;
+	}
+	.cloud:after{
+		content: '';
+		width: 80px;
+		height: 35px;
+		position: absolute;
+		top: -20px;
+		right: 15px;
+		border-radius: 50%;
+		background: #fff;
+
+	}
+	.cloud_1{
+		top: 10%;
+		left: 10%;
+	}
+	.cloud_2{
+		top: 12%;
+		left: 15%;
+	}
+	.cloud_3{
+		top: 7%;
+		left: 10%;
+	}
+	.cloud_4{
+		top: 20%;
+		left: 10%;
+	}
+	.cloud_5{
+		top: 22%;
+		left: 15%;
+	}
+	.cloud_6{
+		top: 20%;
+		left: 0;
+	}
+	.cloud_7{
+		top: 15%;
+		left: 80%;
+	}
+	.cloud_8{
+		top: 20%;
+		left: 85%;
+	}
+	.cloud_9{
+		top: 17%;
+		left: 87%;
+	}
+	.bike{
+		width: 400px;
+		height: 250px;
+		margin: auto;
+		position: relative;
+		z-index: 20;
+		top: 350px;
+		-webkit-transform: rotate(-360deg);
+		-moz-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+		-webkit-animation: flip linear 2.5s 1.5s;
+		-moz-animation: flip linear 2.5s 1.5s;
+		animation: flip linear 2.5s 1.5s;
+	}
+	.bike-tire{
+		width: 140px;
+		height: 140px;
+		position: absolute;
+		z-index: -1;
+		border-radius: 50%;
+		border: 9px solid #1d1d1d;
+		-webkit-animation: spin linear 1s infinite;
+		-moz-animation: spin linear 1s infinite;
+		animation: spin linear 1s infinite;
+	}
+	.bike-tire:after{
+		content: '';
+		width: 26px;
+		height: 26px;
+		display: block;
+		margin: -13px auto 0;
+		position: relative;
+		top: 50%;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		border-radius: 50%;
+		border: 3px solid #8c8a8b;
+		background: #18d09c;
+	}
+	.bike-tire:before{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		border-radius: 50%;
+		border: 5px solid #9d9d9d;
+	}
+	.bike-tire_left{
+		bottom: 0;
+		left: 0;
+	}
+	.bike-tire_right{
+		bottom: 0;
+		right: 0;
+	}
+	.bike-tire-spoke{
+		width: 1px;
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+		left: calc(50% - 1px );
+		background: #000;
+	}
+	.bike-tire-spoke_1{
+		-webkit-transform: rotate(20deg);
+		-moz-transform: rotate(20deg);
+		-ms-transform: rotate(20deg);
+		transform: rotate(20deg);
+	}
+	.bike-tire-spoke_2{
+		-webkit-transform: rotate(40deg);
+		-moz-transform: rotate(40deg);
+		-ms-transform: rotate(40deg);
+		transform: rotate(40deg);
+	}
+	.bike-tire-spoke_3{
+		-webkit-transform: rotate(60deg);
+		-moz-transform: rotate(60deg);
+		-ms-transform: rotate(60deg);
+		transform: rotate(60deg);
+	}
+	.bike-tire-spoke_4{
+		-webkit-transform: rotate(80deg);
+		-moz-transform: rotate(80deg);
+		-ms-transform: rotate(80deg);
+		transform: rotate(80deg);
+	}
+	.bike-tire-spoke_5{
+		-webkit-transform: rotate(100deg);
+		-moz-transform: rotate(100deg);
+		-ms-transform: rotate(100deg);
+		transform: rotate(100deg);
+	}
+	.bike-tire-spoke_6{
+		-webkit-transform: rotate(120deg);
+		-moz-transform: rotate(120deg);
+		-ms-transform: rotate(120deg);
+		transform: rotate(120deg);
+	}
+	.bike-tire-spoke_7{
+		-webkit-transform: rotate(140deg);
+		-moz-transform: rotate(140deg);
+		-ms-transform: rotate(140deg);
+		transform: rotate(140deg);
+	}
+	.bike-tire-spoke_8{
+		-webkit-transform: rotate(160deg);
+		-moz-transform: rotate(160deg);
+		-ms-transform: rotate(160deg);
+		transform: rotate(160deg);
+	}
+	.bike-tire-spoke_9{
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	.bike-tire-spoke_10{
+		-webkit-transform: rotate(200deg);
+		-moz-transform: rotate(200deg);
+		-ms-transform: rotate(200deg);
+		transform: rotate(200deg);
+	}
+	.bike-frame{
+		position: absolute;
+	}
+	.bike-frame_left{
+		width: 115px;
+		height: 80px;
+		top: 107px;
+		left: 95px;
+		border-radius: 3px;
+		border: 7px solid #2670ff;
+		border-left: 9px solid #2670ff;
+		border-right: none;
+		border-top: none;
+		-webkit-transform: skew(-40deg,3deg);
+		-moz-transform: skew(-40deg,3deg);
+		-ms-transform: skew(-40deg,3deg);
+		transform: skew(-40deg,3deg);
+	}
+	.bike-frame_left:after{
+		content: '';
+		width: 4px;
+		height: 180px;
+		position: absolute;
+		top: -66px;
+		right: 74px;
+		background: #0d5fff;
+		-webkit-transform: rotate(-416deg);
+		-moz-transform: rotate(-416deg);
+		-ms-transform: rotate(-416deg);
+		transform: rotate(-416deg);
+	}
+	.bike-frame_right{
+		width: 165px;
+		height: 96px;
+		top: 95px;
+		left: 75px;
+		z-index: 9;
+		border-radius: 0 29px 0 0 ;
+		border: 7px solid #2670ff;
+		border-right: 10px solid  #2670ff;
+		border-bottom: none;
+		border-left: none;
+		-webkit-transform: skew(-50deg,-5deg);
+		-moz-transform: skew(-50deg,-5deg);
+		-ms-transform: skew(-50deg,-5deg);
+		transform: skew(-50deg,-5deg);
+	}
+	.bike-frame_right:after{
+		content: '';
+		width: 3px;
+		height: 350px;
+		position: absolute;
+		top: -160px;
+		right: -25px;
+		background: #2670ff;
+		-webkit-transform: rotate(-60deg);
+		-moz-transform: rotate(-60deg);
+		-ms-transform: rotate(-60deg);
+		transform: rotate(-60deg);
+	}
+	.bike-sprocket{
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		top: 166px;
+		left: 158px;
+		z-index: 10;
+		border-radius: 50%;
+		border-radius: 50%;
+		border: 4px solid #615b5b;
+		-webkit-animation: spin linear 1s infinite;
+		-moz-animation: spin linear 1s infinite;
+		animation: spin linear 1s infinite;
+
+	}
+	.bike-sprocket:before{
+		content: '';
+		width: 10px;
+		height: 10px;
+		display: block;
+		margin: -5px auto 0;
+		position: relative;
+		top: 50%;
+		border-radius: 50%;
+		background: #615b5b;
+	}
+	.bike-sprocket:after{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		border-radius: 50%;
+		border: 2px solid #989c9f;
+	}
+	.bike-sprocket-line{
+		width: 2px;
+		height: 20px;
+		margin-left: -1px;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		background: #615b5b;
+	}
+	.bike-sprocket-line_1{
+		margin-top: -2px;
+		top: 25%;
+		left: 25%;
+		-webkit-transform: rotate(95deg);
+		-moz-transform: rotate(95deg);
+		-ms-transform: rotate(95deg);
+		transform: rotate(95deg);
+		
+	}
+	.bike-sprocket-line_2{
+		margin-top: -2px;
+		margin-left: -5px;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: rotate(30deg);
+		-moz-transform: rotate(30deg);
+		-ms-transform: rotate(30deg);
+		transform: rotate(30deg);		
+	}
+	.bike-sprocket-line_3{
+		margin-top: -2px;
+		margin-left: -5px;
+		top: 50%;
+		left: 75%;
+		-webkit-transform: rotate(-30deg);
+		-moz-transform: rotate(-30deg);
+		-ms-transform: rotate(-30deg);
+		transform: rotate(-30deg);		
+	}
+	.bike-sprocket-line_4{
+		margin-top: -2px;
+		top: 25%;
+		left: 75%;
+		-webkit-transform: rotate(-95deg);
+		-moz-transform: rotate(-95deg);
+		-ms-transform: rotate(-95deg);
+		transform: rotate(-95deg);
+	}
+	.bike-pedals{
+		width: 60px;
+		height: 4px;
+		margin-top: -2px;
+		position: absolute;
+		top: 50%;
+		left: -14px;
+		z-index: 10;
+		background: #a5a4a5;
+	}
+	.bike-pedals:before{
+		content: '';
+		width: 5px;
+		height: 20px;
+		position: absolute;
+		top: -9px;
+		left: -5px;
+		border-radius: 2px;
+		background: #848283;
+		-webkit-animation: spin linear 9s infinite;
+		-moz-animation: spin linear 9s infinite;
+		animation: spin linear 9s infinite;
+	}
+	.bike-pedals:after{
+		content: '';
+		width: 5px;
+		height: 20px;
+		position: absolute;
+		top: -9px;
+		right: -5px;
+		border-radius: 2px;
+		background: #848283;
+		-webkit-animation: spin linear 15s infinite;
+		-moz-animation: spin linear 15s infinite;
+		animation: spin linear 15s infinite;
+	}
+	.bike-seat{
+		width: 15px;
+		height: 11px;
+		position: absolute;
+		top: 48px;
+		left: 87px;
+		border-radius: 50%;
+		background: #01d1ad;
+	}
+	.bike-seat:before{
+		content: '';
+		width: 40px;
+		height: 9px;
+		position: absolute;
+		bottom: -1px;
+		left: 3px;
+		border-radius: 40%;
+		background: #01d1ad;
+		-webkit-transform: skew(55deg,-5deg);
+		-moz-transform: skew(55deg,-5deg);
+		-ms-transform: skew(55deg,-5deg);
+		transform: skew(55deg,-5deg);
+	}
+	.bike-seat:after{
+		content: '';
+		width: 4px;
+		height: 50px;
+		background: #97a39f;
+		position: absolute;
+		left: 24px;
+		z-index: -1;
+		-webkit-transform: rotate(-30deg);
+		-moz-transform: rotate(-30deg);
+		-ms-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	.bike-handleBars{
+		width: 33px;
+		height: 15px;
+		position: absolute;
+		top: 34px;
+		left: 211px;
+		z-index: 10;
+		border: 6px solid #2670ff;
+		border-right: none;
+		border-bottom: none;
+		border-left: none;
+		-webkit-transform: skew(30deg,0deg) rotate(-5deg);
+		-moz-transform: skew(30deg,0deg) rotate(-5deg);
+		-ms-transform: skew(30deg,0deg) rotate(-5deg);
+		transform: skew(30deg,0deg) rotate(-5deg);
+	}
+	.bike-handleBars:before{
+		content: '';
+		width: 25px;
+		height: 7px;
+		position: absolute;
+		top: -7px;
+		left: -5px;
+		border-radius: 5px 2px 2px 5px;
+		background: #333;
+		-webkit-transform: skew(-30deg, 0deg);
+		-moz-transform: skew(-30deg, 0deg);
+		-ms-transform: skew(-30deg, 0deg);
+		transform: skew(-30deg, 0deg);
+	}
+	.bike-handleBars:after{
+		content: '';
+		width: 10px;
+		height: 25px;
+		position: absolute;
+		top: 39px;
+		left: 34px;
+		border-radius: 50% 20px 20px 50%;
+		background: linear-gradient(to right, #ffffff, #edff5f);
+		-webkit-transform: skew(-30deg, 0deg) rotate(-29deg);
+		-moz-transform: skew(-30deg, 0deg) rotate(-29deg);
+		-ms-transform: skew(-30deg, 0deg) rotate(-29deg);
+		transform: skew(-30deg, 0deg) rotate(-29deg);
+		box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75), 10px 0px 20px white;
+		-moz-box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75), 10px 0px 20px white;
+		-webkit-animation: flicker ease-in-out 2s infinite;
+		-moz-animation: flicker ease-in-out 2s infinite;
+		animation: flicker ease-in-out 2s infinite;
+	}
+	.bike-chain{
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 101px;
+		z-index: -1;
+		background: red;
+	}
+	.bike-chain:before{
+		content: '';
+		width: 110px;
+		height: 1px;
+		position: absolute;
+		top: 66px;
+		left: 70px;
+		background: #8c8a8b;
+		background: #666465;	
+	}
+	.bike-chain:after{
+		content: '';
+		width: 110px;
+		height: 1px;
+		position: absolute;
+		top: 97px;
+		left: 68px;
+		background: #666465;
+		-webkit-transform: rotate(7deg);
+	}
+	@-webkit-keyframes flicker{
+		from{
+			box-shadow: 40px 0px 20px rgba(255,254,225,0.125), 30px 0px 20px rgba(255,254,225,0.25), 20px 0px 20px rgba(255,254,225,0.325), 10px 0px 20px rgba(255,254,225,0.5);
+			-moz-box-shadow: 40px 0px 20px rgba(255,254,225,0.125), 30px 0px 20px rgba(255,254,225,0.25), 20px 0px 20px rgba(255,254,225,0.325), 10px 0px 20px rgba(255,254,225,0.5);
+		}
+		to{
+			box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75),10px 0px 20px white;
+			-moz-box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75),10px 0px 20px white;
+		}
+	
+	}
+	@-moz-keyframes flicker{
+		from{
+			box-shadow: 40px 0px 20px rgba(255,254,225,0.125), 30px 0px 20px rgba(255,254,225,0.25), 20px 0px 20px rgba(255,254,225,0.325), 10px 0px 20px rgba(255,254,225,0.5);
+			-moz-box-shadow: 40px 0px 20px rgba(255,254,225,0.125), 30px 0px 20px rgba(255,254,225,0.25), 20px 0px 20px rgba(255,254,225,0.325), 10px 0px 20px rgba(255,254,225,0.5);
+		}
+		to{
+			box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75),10px 0px 20px white;
+			-moz-box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75),10px 0px 20px white;
+		}
+	
+	}
+	@keyframes flicker{
+		from{
+			box-shadow: 40px 0px 20px rgba(255,254,225,0.125), 30px 0px 20px rgba(255,254,225,0.25), 20px 0px 20px rgba(255,254,225,0.325), 10px 0px 20px rgba(255,254,225,0.5);
+			-moz-box-shadow: 40px 0px 20px rgba(255,254,225,0.125), 30px 0px 20px rgba(255,254,225,0.25), 20px 0px 20px rgba(255,254,225,0.325), 10px 0px 20px rgba(255,254,225,0.5);
+		}
+		to{
+			box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75),10px 0px 20px white;
+			-moz-box-shadow: 40px 0px 20px rgba(255,255,255,0.25), 30px 0px 20px rgba(255,255,255,0.5), 20px 0px 20px rgba(255,255,255,0.75),10px 0px 20px white;
+		}
+	
+	}
+	@-webkit-keyframes spin{
+		from{
+			-webkit-transform: rotate(0deg);
+		}
+		to{
+			-webkit-transform: rotate(360deg);
+		}
+	}
+	@-moz-keyframes spin{
+		from{
+			-moz-transform: rotate(0deg);
+		}
+		to{
+			-moz-transform: rotate(360deg);
+		}
+	}
+	@keyframes spin{
+		from{
+			transform: rotate(0deg);
+		}
+		to{
+			transform: rotate(360deg);
+		}
+	}
+	@-webkit-keyframes flip{
+		0%{
+			top: 350px;
+			-webkit-transform: rotate(0deg);
+		}
+		25%{
+			top: 0;
+			-webkit-transform: rotate(-90deg);
+		}
+		75%{
+			top: 50px;
+			-webkit-transform: rotate(-180deg);
+		}
+		100%{
+			top: 350px;
+			-webkit-transform: rotate(-360deg);
+		}
+	}
+	@-moz-keyframes flip{
+		0%{
+			top: 350px;
+			-moz-transform: rotate(0deg);
+		}
+		25%{
+			top: 0;
+			-moz-transform: rotate(-90deg);
+		}
+		75%{
+			top: 50px;
+			-moz-transform: rotate(-180deg);
+		}
+		100%{
+			top: 350px;
+			-moz-transform: rotate(-360deg);
+		}
+	}
+	@keyframes flip{
+		0%{
+			top: 350px;
+			transform: rotate(0deg);
+		}
+		25%{
+			top: 0;
+			transform: rotate(-90deg);
+		}
+		75%{
+			top: 50px;
+			transform: rotate(-180deg);
+		}
+		100%{
+			top: 350px;
+			transform: rotate(-360deg);
+		}
+	}
+	@-webkit-keyframes move{
+		from{
+			left: 100%;
+		}
+		to{
+			left: -100%;
+		}
+	}
+	@-moz-keyframes move{
+		from{
+			left: 100%;
+		}
+		to{
+			left: -100%;
+		}
+	}
+	@keyframes move{
+		from{
+			left: 100%;
+		}
+		to{
+			left: -100%;
+		}
+	}
+	@-webkit-keyframes popUp{
+		0%{
+			top: 350px;
+		}
+		50%{
+			top: 265px;
+		}
+		100%{
+			top: 350px;
+		}
+	}
+	@-moz-keyframes popUp{
+		0%{
+			top: 350px;
+		}
+		50%{
+			top: 265px;
+		}
+		100%{
+			top: 350px;
+		}
+	}
+	@keyframes popUp{
+		0%{
+			top: 350px;
+		}
+		50%{
+			top: 265px;
+		}
+		100%{
+			top: 350px;
+		}
+	}
+	@-webkit-keyframes fadeIn{
+		from{
+			opacity: 0;
+		}
+		to{
+			opacity: 1;
+		}
+	}
+	@-moz-keyframes fadeIn{
+		from{
+			opacity: 0;
+		}
+		to{
+			opacity: 1;
+		}
+	}
+	@keyframes fadeIn{
+		from{
+			opacity: 0;
+		}
+		to{
+			opacity: 1;
+		}
+	}
+</style>
+</head>
+<body>
+    	 <div class="scenary">
+    	 	<div class="clouds">
+    	 		<div class="cloud cloud_1"></div>
+    	 		<div class="cloud cloud_2"></div>
+    	 		<div class="cloud cloud_3"></div>
+    	 		<div class="cloud cloud_4"></div>
+    	 		<div class="cloud cloud_5"></div>
+    	 		<div class="cloud cloud_6"></div>
+    	 		<div class="cloud cloud_7"></div>
+    	 		<div class="cloud cloud_8"></div>
+    	 		<div class="cloud cloud_9"></div>
+
+    	 	</div>
+    	 	<div class="bike">
+    	 		<ul class="bike-tire bike-tire_left">
+    	 			<li class="bike-tire-spoke bike-tire-spoke_1"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_2"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_3"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_4"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_5"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_6"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_7"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_8"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_9"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_10"></li>
+    	 		</ul>
+    	 		<div class="bike-seat"></div>
+    	 		<div class="bike-frame bike-frame_left"></div>
+    	 		<ul class="bike-sprocket">
+    	 			<li class="bike-sprocket-line bike-sprocket-line_1"></li>
+    	 			<li class="bike-sprocket-line bike-sprocket-line_2"></li>
+    	 			<li class="bike-sprocket-line bike-sprocket-line_3"></li>
+    	 			<li class="bike-sprocket-line bike-sprocket-line_4"></li>
+    	 			<li class="bike-sprocket-line bike-sprocket-line_5"></li>
+    	 			<li class="bike-pedals"></li>
+    	 		</ul>
+    	 		<div class="bike-chain"></div>
+    	 		<div class="bike-frame bike-frame_right"></div>
+    	 		<div class="bike-handleBars"></div>
+    	 		<ul class="bike-tire bike-tire_right">
+    	 			<li class="bike-tire-spoke bike-tire-spoke_1"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_2"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_3"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_4"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_5"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_6"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_7"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_8"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_9"></li>
+    	 			<li class="bike-tire-spoke bike-tire-spoke_10"></li>
+    	 		</ul>
+    	 	</div>
+    	 	<div class="thing"><span></span></div>
+    	 </div>
+</body>
+</html>

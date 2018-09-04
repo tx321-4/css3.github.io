@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打开大门</title>
+	<style type="text/css">
+		div{
+			margin:0;
+			padding:0;
+		}
+		.door{
+			width:450px;
+			height:450px;
+			position:relative;
+			background:#a1a1a1;
+		}
+		.door .leftDoor,.door .rightDoor{
+			position:absolute;
+			width:224px;
+			height:400px;
+			top:57px;
+			top:50px;
+			background:#d1d1d1;	
+		}
+		.door .leftDoor{
+			left:0;
+			border-right:1px solid #999;
+			box-shadow:inset -2px -2px 10px rgba(0,0,0,0.1);
+			-webkit-animation:leftDoor 5s 1;
+			-moz-animation:leftDoor 5s 1;
+			-o-animation:leftDoor 5s 1;
+			animation:leftDoor 5s 1;
+			animation-play-state:paused;
+			animation-iteration-count:infinite;
+			-webkit-transform-origin:0% 40%;
+			-moz-transform-origin:0% 40%;
+			-o-transform-origin:0% 40%;
+			transform-origin: 0% 40%;
+
+		}
+		
+
+		.door .rightDoor{
+			right:0;
+			border-right:1px solid #999;
+			box-shadow:inset 2px -2px 10px rgba(0,0,0,0.1);
+			-webkit-animation:rightDoor 5s 1;
+			-moz-animation:rightDoor 5s 1;
+			-o-animation:rightDoor 5s 1;
+			animation:rightDoor 5s 1;
+			animation-play-state:paused;
+			animation-iteration-count:infinite;
+
+			-webkit-transform-origin:100% 40%;
+			-moz-transform-origin:100% 40%;
+			-o-transform-origin:100% 40%;
+			transform-origin: 100% 40%;	
+		}
+		
+			
+
+		
+
+
+
+		@-webkit-keyframes leftDoor{
+			0%,100%{
+				-webkit-transform-origin:0% 40%;
+			}
+			0{
+				-webkit-transform:perspective(0) rotateY(0);
+			}
+			100%{
+				-webkit-transform:perspective(600px) rotateY(70deg);
+			}
+		}
+		@-moz-keyframes leftDoor{
+			0%,100%{
+				-moz-transform-origin:0% 40%;
+			}
+			0{
+				-moz-transform:perspective(0) rotateY(0);
+			}
+			100%{
+				-moz-transform:perspective(600px) rotateY(70deg);
+			}
+		}
+		@-o-keyframes leftDoor{
+			0%,100%{
+				-o-transform-origin:0% 40%;
+			}
+			0{
+				-o-transform:perspective(0) rotateY(0);
+			}
+			100%{
+				-o-transform:perspective(600px) rotateY(70deg);
+			}
+		}
+		@keyframes leftDoor{
+			0%,100%{
+				transform-origin:0% 40%;
+			}
+			0{
+				transform:perspective(0) rotateY(0);
+			}
+			100%{
+				transform:perspective(600px) rotateY(70deg);
+			}
+		}
+		@-webkit-keyframes rightDoor{
+			0%,100%{
+				-webkit-transform-origin:100% 40%;
+			}
+			0{
+				-webkit-transform:perspective(0) rotateY(0);
+			}
+			100%{
+				-webkit-transform:perspective(600px) rotateY(-70deg);
+			}
+		}
+		@-moz-keyframes rightDoor{
+			0%,100%{
+				-moz-transform-origin:100% 40%;
+			}
+			0{
+				-moz-transform:perspective(0) rotateY(0);
+			}
+			100%{
+				-moz-transform:perspective(600px) rotateY(-70deg);
+			}
+		}
+		@-o-keyframes rightDoor{
+			0%,100%{
+				-o-transform-origin:100% 40%;
+			}
+			0{
+				-o-transform:perspective(0) rotateY(0);
+			}
+			100%{
+				-o-transform:perspective(600px) rotateY(-70deg);
+			}
+		}
+		@keyframes rightDoor{
+			0%,100%{
+				transform-origin:100% 40%;
+			}
+			0{
+				transform:perspective(0) rotateY(0);
+			}
+			100%{
+				transform:perspective(600px) rotateY(-70deg);
+			}
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="door" id="door">
+		<div class="leftDoor"></div>
+		<div class="rightDoor"></div>
+
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+		 var door = document.getElementById("door");
+		 door.onmouseover = function(){
+			var a =document.getElementsByTagName("div");
+			a[1].style = 'animation-play-state:running;';
+			a[2].style = 'animation-play-state:running;';
+
+		 };
+		 door.onmouseout = function(){
+			var a =document.getElementsByTagName("div");
+			a[1].style = 'animation-play-state:paused;';
+			a[2].style = 'animation-play-state:paused;';
+
+		 };
+		}
+
+	</script>
+</body>
+</html>

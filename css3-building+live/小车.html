@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>小车</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		background-color: #0cc39e;
+	}
+	.box{
+		position: relative;
+		margin: auto;
+		display: block;
+		width: 800px;
+		height: 600px;
+		background: none;
+	}
+	.big-shadow{
+		position: absolute;
+		width: 60%;
+		height: 80%;
+		top: 10%;
+		left: 20%;
+		background: rgba(11,167,137,0.7);
+		border-radius: 50%;
+		z-index: 2;
+	}
+	.cloud{
+		position: absolute;
+		background: none;
+		width: 25%;
+		height: 12.5%;
+		top: 15%;
+		left: 15%;
+		z-index: 2;
+	}
+	.cloudown{
+		position: absolute;
+		background: #fdfdfd;
+		width: 70%;
+		height: 50%;
+		left: 15%;
+		top: 40%;
+		border-radius: 50px;
+	}
+	.cloud-ball{
+		position: absolute;
+		background: #fdfdfd;
+		width: 20%;
+		height: 50%;
+		border-radius: 50%;
+	}
+	.left-cloud-ball{
+		top: 13%;
+		left: 28%;
+	}
+	.center-cloud-ball{
+		top: 25%;
+		left: 39%;
+	}
+	.right-cloud-ball{
+		top: 8%;
+		left: 52%;
+		width: 22%;
+		height: 60%;
+	}
+	.cloud-3{
+		top: 30%;
+		left: 30%;
+		transform: scale(0.7);
+		z-index: 1;
+	}
+	.cloud-x{
+		top: 14%;
+		left: 62%;
+		transform: scale(1.8);
+		z-index: 3;
+	}
+	.sun{
+		position: absolute;
+		width: 24%;
+		height: 32%;
+		border-radius: 50%;
+		background: #f8b561;
+		left: 57%;
+		top: -8%;
+		z-index: 2;
+	}
+	.danfo{
+		position: absolute;
+		width: 65%;
+		height: 42%;
+		top: 39%;
+		left: 17.5%;
+		z-index: 3;
+		transform: scale(1.15);
+	}
+	.back-bus{
+		position: absolute;
+		width: 40%;
+		height: 70%;
+		top: 21%;
+		left: 3.5%;
+		background-color: #111;
+		-webkit-clip-path: polygon(23% 0,100% 0,100% 97%,0 95%, 0 49%);
+		clip-path: polygon(23% 0,100% 0,100% 97%,0 95%,0 49%);
+	}
+	.back-bus-copy{
+		position: absolute;
+		width: 95%;
+		height: 95%;
+		top: 2.5%;
+		left: 2.5%;
+		background: #f6af41;
+		-webkit-clip-path: polygon(23% 0,100% 0,100% 97%,0 95%,0 49%);
+		clip-path: polygon(23%  0,100% 0,100% 97%,0 95%,0 49%);
+	}
+	.back-bus-frame{
+		position: absolute;
+		width: 100%;
+		height: 91%;
+		top: 7%;
+		background: #111;
+	}
+	.back-bus-frame-copy{
+		position: absolute;
+		width: 97%;
+		height: 99.2%;
+		top: 0.7%;
+		left: 2.4%;
+		background: #f6af41;
+		-webkit-clip-path: polygon(23% -7%, 100% 0%,100% 97%,0% 94%,0% 47%);
+		clip-path: polygon(23% -7%,100% 0%,100% 97%,0% 94%, 0% 47%);
+	}
+	.mid-bus{
+		position: absolute;
+		width: 25%;
+		height: 68%;
+		top: 21%;
+		left: 40%;
+		background: #111;
+		z-index: 2;
+	}
+	.mid-bus-copy{
+		position: absolute;
+		width: 100%;
+		height: 95%;
+		top: 2.5%;
+		left: 0%;
+		background: #f6af41;
+		z-index: 2;
+	}
+	.mid-bus-frame{
+		position: absolute;
+		width: 100%;
+		height: 91%;
+		top: 7%;
+		background: #111;
+		z-index: 2;
+	}
+	.mid-bus-frame-copy{
+		position: absolute;
+		width: 97%;
+		height: 98.7%;
+		top: 1%;
+		left: 1.5%;
+		background: #f6af41;
+		z-index: 2;
+	}
+	.front-bus{
+		position: absolute;
+		width: 33%;
+		height: 70%;
+		top: 21%;
+		right: 3.5%;
+		background: #111;
+		-webkit-clip-path: polygon(50% 0%,100% 49%,100% 95%,0 97%, 0 0);
+		clip-path: polygon(50% 0%,100% 49%,100% 95%,0 97%, 0 0);
+	}
+	.front-bus-copy{
+		position: absolute;
+		width: 95%;
+		height: 95%;
+		top: 2.5%;
+		right: 2.5%;
+		background: #f6af41;
+		-webkit-clip-path: polygon(50% 0%,100% 49%,100% 95%, 0 97%,0 0);
+		clip-path: polygon(50% 0%,100% 49%,100% 95%, 0 97%,0 0);	
+	}
+	.front-bus-frame{
+		position: absolute;
+		width: 95%;
+		height: 95%;
+		top: 5%;
+		right: 5%;
+		background: #111;
+		-webkit-clip-path: polygon(52% 1%,93% 41%,91% 94%,0% 97%,0% 2%);
+		clip-path: polygon(52% 1%,93% 41%,91% 94%,0% 97%,0% 2%);
+	}
+	.front-bus-frame-copy{
+		position: absolute;
+		width: 97.3%;
+		height: 97.7%;
+		top: 1%;
+		left: 1%;
+		background: #f6af41;
+		-webkit-clip-path: polygon(52% 1%,93% 41%,91% 94%,0% 96%,0% 2%);
+		clip-path: polygon(52% 1%,93% 41%,91% 94%,0% 96%,0% 2%);
+	}
+	.front-door{
+		position: absolute;
+		width: 100%;
+		height: 94%;
+		top: 0%;
+		right: 6%;
+		background: #111;
+		-webkit-clip-path: polygon(13% 0,70% 0%,100% 30%,100% 99%,60% 100%,51% 78%,20% 75%,13% 57%);
+		clip-path: polygon(13% 0,70% 0%,100% 30%,100% 99%,60% 100%,51% 78%,20% 75%,13% 57%);
+	}
+	.front-door-copy{
+		position: absolute;
+		width: 98%;
+		height: 97.8%;
+		top: 1.1%;
+		left: 1.1%;
+		background: #f6af41;
+		-webkit-clip-path: polygon(13% 0,70% 0%,100% 30%,100% 99%,60% 100%,51% 78%,20% 75%,13% 57%);
+		clip-path: polygon(13% 0,70% 0%,100% 30%,100% 99%,60% 100%,51% 78%,20% 75%,13% 57%);
+	}
+	.door-knob{
+		position: absolute;
+		width: 3%;
+		height: 1%;
+		top: 52.5%;
+		right: 37%;
+		background: none;
+		border: 2px solid #111;
+		border-radius: 0px 0px 3px 3px;
+		z-index: 3;
+	}
+	.front-door-knob{
+		right: 29.5%;
+	}
+	.stripe{
+		position: absolute;
+		width: 88%;
+		height: 1.5%;
+		right: 7.5%;
+		background: #111;
+		bottom: 47%;
+		z-index: 3;
+	}
+	.stripe-x{
+		bottom: 42%;
+	}
+	.wheel-cover{
+		position: absolute;
+		width: 32%;
+		height: 37%;
+		border-radius: 40%;
+		background: #111;
+		bottom: -14%;
+		left: 33%;
+	}
+	.right-wh{
+		left: 8%;
+		width: 39%;
+	}
+	.wheel{
+		position: absolute;
+		width: 9%;
+		height: 19%;
+		border-radius: 50%;
+		background: #242350;
+		border: 1px solid #111;
+		bottom: 0%;
+		left: 18.3%;
+	}
+	.rim{
+		position: absolute;
+		width: 70%;
+		height: 70%;
+		border-radius: 50%;
+		background: #fdfdfd;
+		top: 15%;
+		left: 15%;
+	}
+	.rim-inner{
+		position: absolute;
+		width: 60%;
+		height: 60%;
+		border-radius: 50%;
+		border: 3px dotted #242350;
+		background: none;
+		top: 10%;
+		left: 10%;
+	}
+	.stub{
+		position: absolute;
+		width: 45%;
+		height: 45%;
+		border-radius: 50%;
+		background: #111;
+		top: 25%;
+		left: 25%;
+	}
+	.right-wheel{
+		left: 67.8%;
+	}
+	.back-window{
+		position: absolute;
+		width: 23%;
+		height: 32.5%;
+		top: 15.5%;
+		left: 18%;
+		background: #111;
+		-webkit-clip-path: polygon(20% 45%,87% 45%,86% 100%,0% 100%);
+		clip-path: polygon(20% 45%,87% 45%,86% 100%,0% 100%);
+	}
+	.back-window-copy{
+		position: absolute;
+		width: 95%;
+		height: 93%;
+		top: 4.5%;
+		left: 2.5%;
+		background: #75c8b8;
+		-webkit-clip-path: polygon(20% 45%,87% 45%,86% 100%, 0% 100%);
+		clip-path: polygon(20% 45%,87% 45%,86% 100%, 0% 100%);
+	}
+	.middle-window{
+		position: absolute;
+		width: 25%;
+		height: 33.5%;
+		top: 14.3%;
+		left: 40.2%;
+		background: #111;
+		-webkit-clip-path: polygon(7% 48%, 93% 48%,91% 100%,9% 100%);
+		clip-path: polygon(7% 48%, 93% 48%,91% 100%,9% 100%);
+		z-index: 3;
+	}
+	.middle-window-copy{
+		position: absolute;
+		width: 95.1%;
+		height: 93%;
+		top: 4.5%;
+		left: 2.5%;
+		background: #75c8b8;
+		-webkit-clip-path: polygon(7% 48%,93% 48%, 91% 100%, 9% 100%);
+		clip-path: polygon(7% 48%,93% 48%, 91% 100%, 9% 100%);
+		z-index: 3;
+	}
+	.front-window{
+		position: absolute;
+		width: 21%;
+		height: 32%;
+		top: 16%;
+		left: 66.8%;
+		background: #111;
+		-webkit-clip-path: polygon(0% 44%,62% 44%,104% 100%,0 99%);
+		clip-path: polygon(0% 44%,62% 44%,104% 100%,0 99%);
+		z-index: 3;
+	}
+	.front-window-copy{
+		position: absolute;
+		width: 93.5%;
+		height: 94%;
+		top: 4%;
+		left: 1.5%;
+		background: #75c8b8;
+		-webkit-clip-path: polygon(0% 44%,62% 44%,104% 100%,0 99%);
+		clip-path: polygon(0% 44%,62% 44%,104% 100%,0 99%);
+	}
+	.pane{
+		position: absolute;
+		width: 6%;
+		height: 17%;
+		top: 30%;
+		left: 8%;
+		background: #111;
+		-webkit-clip-path: polygon(70% 0, 100% 0%,35% 100%, 0 100%);
+		clip-path: polygon(70% 0, 100% 0%,35% 100%, 0 100%);
+	}
+	.bumper{
+		position: absolute;
+		width: 5%;
+		height: 6%;
+		bottom: 15%;
+		left: 1.3%;
+		background: #111;
+	}
+	.back-bump{
+		position: absolute;
+		width: 3%;
+		height: 4%;
+		bottom: 21%;
+		left: 1.3%;
+		background: #111;
+		z-index: 1;
+		-webkit-clip-path: polygon(100% 36%,0% 100%,100% 100%);
+		clip-path: polygon(100% 36%,0% 100%,100% 100%);
+	}
+	.front-bumper{
+		bottom: 12%;
+		left: 93.7%;
+		z-index: 3;
+	}
+	.front-bum{
+		position: absolute;
+		width: 2.5%;
+		height: 4%;
+		bottom: 20.3%;
+		right: 2.6%;
+		background: #111;
+		z-index: 3;
+	}
+	.front-bump{
+		position: absolute;
+		width: 3%;
+		height: 4%;
+		bottom: 18%;
+		right: 1.3%;
+		background: #111;
+		z-index: 1;
+		-webkit-clip-path: polygon(0% 45%,0% 100%,100% 100%);
+		clip-path: polygon(0% 45%,0% 100%,100% 100%);
+	}
+	.front-light{
+		position: absolute;
+		width: 1.2%;
+		height: 11%;
+		right: 2.8%;
+		background: #111;
+		z-index: 1;
+		bottom: 26%;
+		border-radius: 0px 3px 3px 0px;
+	}
+	.rear-light{
+		position: absolute;
+		width: 3%;
+		height: 2%;
+		background: #95989f;
+		bottom: 25%;
+		left: 5%;
+	}
+	.red-rear-light{
+		background: #e7001a;
+		left: 8%;
+	}
+	.road{
+		position: absolute;
+		width: 65%;
+		height: 1.2%;
+		background: rgba(0,0,0,0.3);
+		bottom: 15.5%;
+		left: 17.5%;
+		border-radius: 20px;
+		z-index: 2;
+	}
+</style>
+</head>
+<body>
+    <div class="box">
+    	<div class="big-shadow"></div>
+    	<div class="cloud">
+    		<div class="cloud-ball left-cloud-ball"></div>
+    		<div class="cloud-ball center-cloud-ball"></div>
+    		<div class="cloud-ball right-cloud-ball"></div>
+    		<div class="cloudown"></div>
+    	</div>
+    	<div class="cloud cloud-3">
+    		<div class="cloud-ball left-cloud-ball"></div>
+    		<div class="cloud-ball center-cloud-ball"></div>
+    		<div class="cloud-ball right-cloud-ball"></div>
+    		<div class="cloudown"></div>
+    	</div>
+    	<div class="cloud cloud-x">
+    		<div class="cloud-ball left-cloud-ball"></div>
+    		<div class="cloud-ball center-cloud-ball"></div>
+    		<div class="cloud-ball right-cloud-ball"></div>
+    		<div class="cloudown"></div>
+    	</div>
+    	<div class="sun"></div>
+    	<div class="danfo">
+    		<div class="back-bus">
+    			<div class="back-bus-copy"></div>
+    			<div class="back-bus-frame">
+    				<div class="back-bus-frame-copy"></div>
+    			</div>
+    			<div class="wheel-cover"></div>
+    		</div>
+    		<div class="pane"></div>
+    		<div class="back-window">
+    			<div class="back-window-copy"></div>
+    		</div>
+    		<div class="middle-window">
+    			<div class="middle-window-copy"></div>
+    		</div>
+    		<div class="front-window">
+    			<div class="front-window-copy"></div>
+    		</div>
+    		<div class="rear-light"></div>
+    		<div class="rear-light red-rear-light"></div>
+    		<div class="back-bump"></div>
+    		<div class="bumper"></div>
+    		<div class="mid-bus">
+    			<div class="mid-bus-copy"></div>
+    			<div class="mid-bus-frame">
+    				<div class="mid-bus-frame-copy"></div>
+    			</div>
+    		</div>
+    		<div class="front-bus">
+    			<div class="front-bus-copy"></div>
+    			<div class="front-bus-frame">
+    				<div class="front-bus-frame-copy">
+    					<div class="front-door">
+    						<div class="front-door-copy"></div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="wheel-cover right-wh"></div>
+    		</div>
+    		<div class="front-light"></div>
+    		<div class="front-bum"></div>
+    		<div class="front-bump"></div>
+    		<div  class="bumper front-bumper"></div>
+    		<div class="stripe"></div>
+    		<div class="stripe stripe-x"></div>
+    		<div class="door-knob"></div>
+    		<div class="door-knob front-door-knob"></div>
+    		<div class="wheel">
+    			<div class="rim">
+    				<div  class="rim-inner">
+    					<div class="stub"></div>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="wheel right-wheel">
+    			<div class="rim">
+    				<div class="rim-inner">
+    					<div class="stub"></div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="road"></div>
+    </div>
+</body>
+</html>

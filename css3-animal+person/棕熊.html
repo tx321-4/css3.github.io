@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>棕熊</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+*{
+	box-sizing: border-box;
+}
+	body{
+		height: 100vh;
+		background-color: #2E2836;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.cameo{
+		box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.75);
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		min-height: 320px;
+		min-width: 320px;
+		background-color: #9BAF74;
+		border-radius: 50%;
+		border: 10px solid #E5D3B3;
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+
+	}
+	.hands{
+		background-color: #441E22;
+		height: 200px;
+		width: 200px;
+		position: absolute;
+		margin: 90px auto;
+		border-radius: 50%;
+	}
+	.ear, .head::after, .head::before{
+		content: "";
+		border-radius: 50%;
+		border: 15px solid #441E22;
+		background-color: #BE8A60;
+		height: 35px;
+		width: 35px;
+		position: absolute;
+		z-index: -1;
+		box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+	}
+	.head{
+		display: flex;
+		justify-content: center;
+		height: 230px;
+		width: 165px;
+		background-color: #6A2E35;
+		border-top-left-radius: 45%;
+		border-top-right-radius: 45%;
+		position: relative;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
+	.head::after{
+		left: -20px;
+	}
+	.head:before{
+		right: -20px;
+	}
+	.head .eye, .head .face::before, .head  .face::after{
+		color: #fff;
+		content: ".";
+		font-size: 45px;
+		text-align: center;
+		line-height: 10px;
+		height: 28px;
+		width: 28px;
+		border-radius: 50%;
+		background-color: #000;
+		position: absolute;
+		top: -15px;
+	}
+	.head .face{
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+		height: 90px;
+		width: 80px;
+		background-color: #BE8A60;
+		border-radius: 35px;
+		position: relative;
+		box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+	}
+	.head .face::before{
+		left: -10px;
+	}
+	.head .face::after{
+		right: -10px;
+	}
+	.head .face .nose{
+		width: 50px;
+		height: 25px;
+		background-color: #000;
+		border-radius: 8px;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		position: relative;
+	}
+	.head .face .nose::after{
+		content: "";
+		width: 10px;
+		height: 6px;
+		background-color: #fff;
+		position: absolute;
+		right: 10px;
+		top: 5px;
+		border-radius: 40%;
+	}
+	.head .face .mouth{
+		width: 4px;
+		height: 30px;
+		background-color: #000;
+		position: relative;
+	}
+	.head .face .mouth::after{
+		content: "";
+		width: 55px;
+		height: 55px;
+		border-bottom: 5px solid #000;
+		position: absolute;
+		bottom: 0px;
+		left: -25px;
+		border-radius: 20%;
+	}
+</style>
+<link href="" rel="stylesheet">
+</head>
+	<div class="cameo">
+		<div class="hands"></div>
+		<div class="head">
+			<div class="face">
+				<div class="nose"></div>
+				<div class="mouth"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

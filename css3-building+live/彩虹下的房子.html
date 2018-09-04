@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>彩虹下的房子</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	*,*::before,*::after{
+		box-sizing: border-box;
+	}
+	html,body{
+		background: #84d6e2;
+		background-image: -webkit-linear-gradient(top,#84d6e2,#84d6e2 50%,#efcdeb);
+		background-image: linear-gradient(top,#84d6e2,#84d6e2 50%,#efcdeb);
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;	
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		font-size: 16px;
+	}
+	.artboard{
+		position: relative;
+		width: 400px;
+		height: 400px;
+	}
+	.cloud{
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 243px;
+		height: 70px;
+		-webkit-animation: wind-right 7s linear infinite alternate;
+		animation: wind-right 7s linear infinite alternate;
+		-webkit-transform: scale(0.4);
+		transform: scale(0.4);
+	}
+	.cloud::before{
+		position: absolute;
+		content: '';
+		z-index: 1;
+		top: 37px;
+		left: 0;
+		width: 100%;
+		height: 33px;
+		background: #84d6e2;
+	}
+	.cloud span{
+		position: absolut;
+		top: 0;
+		left: 0;
+		background: #fff;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+	}
+	.cloud span:nth-child(2){
+		-webkit-transform: scale(1.4);
+		transform: scale(1.4);
+		top: -30px;
+		left: 70px;
+	}
+	.cloud span:nth-child(3){
+		top: -10px;
+		left: 140px;
+	}
+	.cloud span:nth-child(4){
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+		top: 0px;
+		left: 190px;
+	}
+	.cloud:nth-child(2){
+		top: 3rem;
+		left: auto;
+		right: -50px;
+		-webkit-transform: scale(0.4) rotateY(180deg);
+		transform: scale(0.4) rotateY(180deg);
+		-webkit-animation: wind-left 7s linear infinite alternate;
+		animation: wind-left 7s linear infinite alternate;
+	}
+	@-webkit-keyframes wind-right{
+		from{
+			-webkit-transform: scale(0.6) translateX(0);
+			transform: scale(0.6) translateX(0);
+		}
+		to{
+			-webkit-transform: scale(0.65) translateX(20px);
+			transform: scale(0.65) translateX(20px);	
+		}
+	}
+	@keyframes wind-right{
+		from{
+			-webkit-transform: scale(0.6) translateX(0);
+			transform: scale(0.6) translateX(0);
+		}
+		to{
+			-webkit-transform: scale(0.65) translateX(20px);
+			transform: scale(0.65) translateX(20px);	
+		}
+	}
+	@keyframes wind-left{
+		from{
+			-webkit-transform: scale(0.6) rotateY(180deg) translateX(0);
+			transform: scale(0.6) rotateY(180deg) translateX(0);
+		}
+		to{
+			-webkit-transform: scale(0.65) rotateY(180deg) translateX(20px);
+			transform: scale(0.65) rotateY(180deg) translateX(20px);	
+		}
+	}
+	@-webkit-keyframes wind-left{
+		from{
+			-webkit-transform: scale(0.6) rotateY(180deg) translateX(0);
+			transform: scale(0.6) rotateY(180deg) translateX(0);
+		}
+		to{
+			-webkit-transform: scale(0.65) rotateY(180deg) translateX(20px);
+			transform: scale(0.65) rotateY(180deg) translateX(20px);	
+		}
+	}
+	.bird{
+		z-index: 9;
+		position: absolute;
+		top: 100px;
+		left: 40px;
+		-webkit-transform: rotate(-20deg) scale(0.8);
+		transform: rotate(-20deg) scale(0.8);
+	}
+</style>
+</head>
+<body>
+    <div class="artboard">
+    	<div class="cloud"><span></span><span></span><span></span><span></span></div>
+    	<div class="cloud"><span></span><span></span><span></span><span></span></div>
+    	<div class="bird">
+    		<div class="wing"></div>
+    		<div class="wing"></div>
+    	</div>
+    	<div class="bird">
+    		<div class="wing"></div>
+    		<div class="wing"></div>
+    	</div>
+    	<div class="bird">
+    		<div class="wing"></div>
+    		<div class="wing"></div>
+    	</div>
+    	<div class="land">
+    		<div class="up">
+    		<div class="tree">
+    			<div class="trunk"></div>
+    		</div>
+    		<div class="house">
+    			<div class="shadow"></div>
+    			<div class="door"></div>
+    			<div class="smoke"></div>
+    			<div class="smoke"></div>
+    			<div class="smoke"></div>
+    		</div>
+    		<div class="bunny">
+    			<div class="head"></div>
+    		</div>
+    		<div class="bunny">
+    			<div class="head"></div>
+    		</div>
+    		<div class="heart"></div>
+    		<div class="mail"><span></span></div>
+    	</div>
+    	<div class="down"></div>
+    </div>
+    </div>
+</body>
+</html>

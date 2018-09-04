@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>机器人</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	*{
+		box-sizing: border-box;
+	}
+	body{
+		background-color: #e4eff2;
+	}
+	.container > *,
+	.container > *::before,
+	.container > *::after{
+		position: absolute;
+	}
+	.container > *::after,
+	.container > *::before{
+		content: '';
+	}
+	.container{
+		position: relative;
+		width: 600px;
+		height: 600px;
+		margin: auto;
+	}
+	.body{
+		width: 150px;
+		height: 300px;
+		background-color: #acdce8;
+		left: 225px;
+		top: 50px;
+		border-top-left-radius: 150px;
+		border-top-right-radius: 150px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		border: 5px solid #406080;
+		z-index: 3;
+		background: linear-gradient(to bottom right, #d4edf3, #98d4e2);
+		overflow: hidden;
+	}
+	.body-bottom{
+		width: 120px;
+		height: 15px;
+		background-color: #3693c4;
+		border: 5px solid #406080;
+		border-top: none;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		top: 350px;
+		left: 242px;
+		z-index: 3;
+	}
+	.middle-wheel{
+		top: 355px;
+		left: 284px;
+		width: 40px;
+		height: 25px;
+		background-color: #acdce8;
+		    border: 5px solid #406080;
+		border-bottom: none;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		z-index: 2;
+	}
+	.middle-wheel::after{
+		width: 135%;
+		height: 25px;
+		background-color: #acdce8;
+		border: 5px solid #406080;
+		border-radius: 10px;
+		left: -11px;
+		top: 15px;
+	}
+	.middle-wheel-ending{
+		width: 35px;
+		height:13px;
+		background-color: #369ec4;
+		border-bottom: 5px solid #406080;
+		border-left: 5px solid #406080;
+		border-right: 5px solid #406080;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		top: 408px;
+		z-index: 1;
+		left: 286.5px;
+	}
+	.left-leg,
+	.right-leg,
+	.left-leg-ending,
+	.right-leg-ending{
+		background-color: #acdce8;
+		border: 5px  solid #406080;
+		border-radius: 10px;
+		z-index: 2;
+	}
+	.left-leg,
+	.right-leg{
+		width: 40px;
+		height: 140px;
+		top: 165px;
+		border-bottom: none;
+	}
+	.left-leg{
+		left: 193px;
+	}
+	.right-leg{
+		right: 193px;
+	}
+	.left-leg-ending,
+	.right-leg-ending{
+		width: 50px;
+		height: 52px;
+		top: 298px;
+	}
+	.left-leg-ending{
+		left: 185px;
+	}
+	.right-leg-ending{
+		right: 185px;
+	}
+	.left-connector,
+	.right-connector{
+		width: 30px;
+		height: 10px;
+		background-color: #369ec4;
+		border-left: 5px solid #406080;
+		border-right: 5px solid #406080;
+		top: 348px;
+	}
+	.left-connector{
+		left: 194px;
+	}
+	.right-connector{
+		right: 194px;
+	}
+	.left-wheel,
+	.right-wheel{
+		top: 355px;
+		width: 45px;
+		height: 25px;
+		background-color: #acdce8;
+		border: 5px solid #406080;
+		border-bottom: none;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		z-index: 2;
+	}
+	.left-wheel::after,
+	.right-wheel::after{
+		width: 135%;
+		height: 25px;
+		background-color: #acdce8;
+		border: 5px solid #406080;
+		border-radius: 10px;
+		left: -11px;
+		top: 15px;
+	}
+	.left-wheel{
+		left: 186.5px;
+	}
+	.right-wheel{
+		right: 186.5px;
+	}
+	.left-wheel-ending,
+	.right-wheel-ending{
+		width:45px;
+		height: 13px;
+		background-color: #369ec4;
+		border-bottom: 5px solid #406080;
+		border-left: 5px solid #406080;
+		border-right: 5px solid #406080;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		top: 408px;
+		z-index: 1;
+	}
+	.left-wheel-ending{
+		left: 186.5px;
+	}
+	.right-wheel-ending{
+		right: 186.5px;
+	}
+	.sensor{
+		width: 40px;
+		height: 40px;
+		background-color: #07b2f7;
+		border-radius: 10px;
+		border:3px solid #406080;
+		top: 90px;
+		left: 280px;
+		z-index: 4;
+	}
+	.sensor::before{
+		width: 50%;
+		height: 50%;
+		background-color: #00ebff;
+		border-radius: 50%;
+		border: 6px solid #406080;
+		left: 2px;
+		top: 2px;
+	}
+	.sensor::after{
+		width: 25%;
+		height: 25%;
+		background-color: white;
+		border-radius: 50%;
+		left: 10px;
+		top: 8px;
+		opacity: 0.7;
+	}
+	.buttons{
+		width:40px;
+		height:20px;
+		background-color: #07b2f7;
+		border-radius: 5px;
+		border: 3px solid #406080;
+		top: 137px;
+		left: 280px;
+		z-index: 4;
+	}
+	.buttons::before{
+		width: 20px;
+		height:15px;
+		background-color: #00ebff;
+		border-radius:5px ;
+		border: 3px solid #406080;
+		left: -35px;
+		top: -2px;
+	}
+	.buttons::after{
+		width: 15px;
+		height:15px;
+		background-color: #00ebff;
+		border-radius: 50%;
+		border: 3px solid #406080;
+		left: 44px;
+		top: -2px;
+	}
+	.red-button{
+		position: relative;
+		width: 12px;
+		height: 12px;
+		background-color: #ff9a93;
+		border-radius: 50%;
+		border: 2px solid #406080;
+		top: 1px ;
+		left: 15px;
+	}
+	.top-decorations{
+		position: relative;
+		width: 150px;
+		height: 30px;
+		top: -5px;
+		background-color: #07b2f7;
+		border-bottom-right-radius: 10px;
+		border: 3px solid #406080;
+		z-index: 3;
+	}
+	.top-decorations::after{
+		height: 100%;
+		width: 100%;
+		top: -3px;
+		left: 50px;
+		background-color: #07b2f7;
+		border-bottom-left-radius: 10px;
+		border: 3px solid #406080;
+	}
+	.body-decorations-lines{
+		width: 95px;
+		height: 10px;
+		background-color: #406080;
+		border-radius: 10px;
+		left: 253px;
+		top: 215px;
+		z-index: 4;
+	}
+	.body-decorations-lines::before{
+		width: 100%;
+		height: 100%;
+		background-color: #406080;
+		top: -20px;
+		border-radius: 10px;
+	}
+	.body-decorations-lines::after{
+		width: 100%;
+		height: 100%;
+		background-color: #406080;
+		top: 20px;
+		border-radius: 10px;
+	}
+	.separator{
+		width: 150px;
+		height: 5px;
+		background-color: #406080;
+		border-radius: 10px;
+		left: 225px;
+		top: 167px;
+		z-index: 4;
+	}
+	.separator::after{
+		width: 100%;
+		height: 100%;
+		background-color: #406080;
+		border-radius: 10px;
+		top: 10px;
+	}
+	.body-decorations-squares{
+		width: 30px;
+		height: 50px;
+		background-color: #07b2f7;
+		border-radius: 10px;
+		border: 3px solid #406080;
+		top: 255px;
+		left: 288px;
+		z-index: 4;
+	}
+	.body-decorations-squares::after{
+		width: 100%;
+		height: 50%;
+		background-color: #07b2f7;
+		border-radius: 10px;
+		border: 3px solid #406080;
+		top: 55px;
+		left: -3px;
+	}
+	.left-leg::after,
+	.left-leg-ending::after{
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+		opacity: 0.3;
+	}
+	.right-leg::after,
+	.right-leg-ending::after{
+		width: 30%;
+		height: 100%;
+		background-color: #999;
+		opacity: 0.2;
+	}
+</style>
+</head>
+<body>
+        <div class="container">
+        	<div class="body">
+        		<div class="top-decorations"></div>
+        	</div>
+        	<div class="separator"></div>
+        	<div class="body-decorations-lines"></div>
+        	<div class="body-decorations-squares"></div>
+        	<div class="body-bottom"></div>
+        	<div class="middle-wheel"></div>
+        	<div class="middle-wheel-ending"></div>
+        	<div class="sensor"></div>
+        	<div class="buttons">
+        		<div class="red-button"></div>
+        	</div>
+        	<div class="left-leg"></div>
+        	<div class="left-leg-ending"></div>
+        	<div class="left-connector"></div>
+        	<div class="left-wheel"></div>
+        	<div class="left-wheel-ending"></div>
+        	<div class="right-leg"></div>
+        	<div class="right-leg-ending"></div>
+        	<div class="right-connector"></div>
+        	<div class="right-wheel"></div>
+        	<div class="right-wheel-ending"></div>
+        </div>
+</body>
+</html>

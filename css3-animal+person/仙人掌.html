@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>仙人掌</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body,html{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		height: 100%;
+		background-color: #cedeff;
+	}
+	.george{
+		text-align: center;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: column nowrap;
+		flex-flow: column nowrap;
+		align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		position: absolute;
+		padding-top: 30vh;
+	}
+	.george .pot_top{
+		width: 30vh;
+		height: 0;
+		border-top: 5vh solid #dd8740;
+		border-left: 0.90909vh solid transparent;
+		border-right: 0.90909vh solid transparent;
+	}
+	.george .pot_body{
+		width: 20vh;
+		height: 0;
+		border-top: 17vh solid #e5a26a;
+		border-left: 4vh solid transparent;
+		border-right: 4vh solid transparent;
+	}
+	.george .pot_plate{
+		width: 23vh;
+		height: 0;
+		border-top: 4vh solid #dd8740;
+		border-left: 0.8vh solid transparent;
+		border-right: 0.8vh solid transparent;
+	}
+	.george .george_flower{
+		position: absolute;
+		top: 0;
+		left: 11vh;
+		height: 6.66667vh;
+		width: 5vh;
+		border-radius: 0 100% 0 100%;
+		background-color: #e2641b;
+	}
+	.george .george_flower:before{
+		content: '';
+		top: 0;
+		left: 5vh;
+		-webkit-transform: rotate(70deg);
+		transform: rotate(70deg);
+		position: absolute;
+		height: 6.66667vh;
+		width: 5vh;
+		border-radius: 0 100% 0 100%;
+		background-color: #e2641b;
+	}
+	
+	.george .george_head{
+		position: absolute;
+		z-index: -1;
+		top: 6.66667vh;
+		left: 2vh;
+		height: 30vh;
+		width: 28vh;
+		background-color: #98d30c;
+		border-radius: 100%;
+	}
+	.george .george_head .line{
+		height: 30vh;
+		width: 1vh;
+		background-color: #fff;
+		opacity: .5;
+		position: absolute;
+		left: 13vh;
+	}
+	.george .george_head:before{
+		content: '';
+		display: block;
+		height: 30vh;
+		width: 20.74074vh;
+		border: 1vh solid #fff;
+		border-radius: 100%;
+		position: absolute;
+		left: 2.5vh;
+		opacity: .5;
+	}
+	.george .george_head:after{
+		content: '';
+		display: block;
+		height: 30vh;
+		width: 9.3333vh;
+		border: 1vh solid #fff;
+		border-radius: 100%;
+		position: absolute;
+		left: 8vh;
+		opacity: .5;
+	}
+	.george .george_head .eye{
+		height: 8vh;
+		width: 8vh;
+		position: absolute;
+		background-color: #464d5b;
+		border-radius: 100%;
+		z-index: 1;
+		top: 10vh;
+		left: 0;
+	}
+	.george .george_head .eye:before{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 1.66667vh;
+		height: 1.66667vh;
+		background-color: #fff;
+		border-radius: 100%;
+		bottom: 1vh;
+		right: 1.66667vh;
+		-webkit-animation: shimmer .25s infinite alternate;
+		animation: shimmer .25s infinite alternate;
+	}
+	.george .george_head .eye:after{
+		content: '';
+		display: block;
+		position: absolute;
+		width:5vh;
+		height: 5vh;
+		background-color: #fff;
+		border-radius: 100%;
+		bottom: 2vh;
+		right: 2vh;
+		-webkit-animation: shimmer .25s infinite alternate;
+		animation: shimmer .25s infinite alternate;
+	}
+	.george .george_head .eye:last-of-type{
+		left: 11.42857vh;
+	}
+	.george .george_head .cheek{
+		height: 2.5vh;
+		width: 5.71429vh;
+		border-radius: 60%;
+		background-color: #f2a4ca;
+		position: absolute;
+		top: 16.66667vh;
+		left: -2vh;
+		z-index: 5;
+	}
+	.george .george_head .cheek:after{
+		content: '';
+		height: 2.5vh;
+		width: 5.71429vh;
+		border-radius: 60%;
+		background-color: #f2a4ca;
+		position: absolute;
+		left: 17.3919vh;
+		z-index: 5;
+	}
+	.george .shadow{
+		height: 5vh;
+		width: 60vh;
+		position:absolute;
+		bottom: -2.5vh;
+		right: -15vh;
+		background-color: #464d5b;
+		opacity: .25;
+		border-radius: 100%;
+		z-index: -10;
+	}
+	@-webkit-keyframes shimmer{
+		0%{
+			-webkit-transform: translateX(-0.06667vh) translateY(0.06667vh);
+			transform: translateX(-0.06667vh) translateY(0.06667vh);
+		}
+		50%{
+			-webkit-transform: translateX(-0.06667vh) translateY(-0.06667vh);
+			transform: translateX(-0.06667vh) translateY(-0.06667vh);
+		}
+		100%{
+			-webkit-transform: translateX(0.06667vh) translateY(0.06667vh);
+			transform: translateX(0.06667vh) translateY(0.06667vh);
+		}
+
+	}
+	@keyframes shimmer{
+		0%{
+			-webkit-transform: translateX(-0.06667vh) translateY(0.06667vh);
+			transform: translateX(-0.06667vh) translateY(0.06667vh);
+		}
+		50%{
+			-webkit-transform: translateX(-0.06667vh) translateY(-0.06667vh);
+			transform: translateX(-0.06667vh) translateY(-0.06667vh);
+		}
+		100%{
+			-webkit-transform: translateX(0.06667vh) translateY(0.06667vh);
+			transform: translateX(0.06667vh) translateY(0.06667vh);
+		}
+
+	}
+</style>
+</head>
+<body>
+    <div class="george">
+    	<div class="shadow"></div>
+    	<div class="george_flower"></div>
+    	<div class="george_head">
+    		<div class="line"></div>
+    		<div class="cheek"></div>
+    		<div class="eye"></div>
+    		<div class="eye"></div>
+    	</div>
+    	<div class="pot_top"></div>
+    	<div class="pot_body"></div>
+    	<div class="pot_plate"></div>
+    </div>
+</body>
+</html>

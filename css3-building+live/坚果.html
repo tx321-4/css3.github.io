@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>坚果</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	*{box-sizing:border-box;}
+	body,html{
+		height: 100%;
+		width: 100%;
+		background: #fffdde;
+	}
+	.canvas{
+		position: relative;
+		top: 10%;
+		margin: auto;
+		height: 300px;
+		width: 300px;
+	}
+	.hat{
+		position: absolute;
+		top: 15%;
+		left: calc((100% - 65%)/2);
+		height: 30%;
+		width: 65%;
+		background: #6d4624;
+		background-image: linear-gradient(135deg,transparent 20px,#633f20 20px,#633f20 25px,transparent 25px,transparent 40px,#633f20 40px,#633f20 45px, transparent 45px,transparent 65px, #633f20 65px, #633f20 70px, transparent 70px, transparent 90px,#633f20 90px, #633f20 95px, transparent 95px, transparent 115px,#633f20 115px, #633f20 120px, transparent 120px,transparent 140px, #633f20 140px, #633f20 145px,transparent 145px, transparent 165px, #633f20 165px, #633f20 170px, transparent 170px), linear-gradient(45deg,transparent 20px,#633f20 20px,#633f20 25px,transparent 25px,transparent 40px,#633f20 40px,#633f20 45px, transparent 45px,transparent 65px, #633f20 65px, #633f20 70px, transparent 70px, transparent 90px,#633f20 90px, #633f20 95px, transparent 95px, transparent 115px,#633f20 115px, #633f20 120px, transparent 120px,transparent 140px, #633f20 140px, #633f20 145px,transparent 145px, transparent 165px, #633f20 165px, #633f20 170px,transparent 170px) ;
+		border-radius: 50% 50% 20% 20%;
+		z-index: 1;
+	}
+	.hat::before{
+		position: absolute;
+		display: block;
+		content: "";
+		top: -20px;
+		left: calc((100% - 20px)/2);
+		height: 30px;
+		width: 15px;
+		background: #6d4624;
+		-webkit-transform: rotate(-15deg);
+		-moz-transform: rotate(-15deg);
+		-o-transform: rotate(-15deg);
+		transform: rotate(-15deg);
+		-webkit-clip-path: polygon(0 0,100% 0,30% 100%);
+	}
+	.acorn{
+		position: absolute;
+		top: 40%;
+		left: 20%;
+		height: 40%;
+		width:60%;
+		background: #bf7b40;
+		border-radius: 0 0 50% 50% /100%;
+		z-index: 2;
+	}
+	.acorn::before{
+		position: absolute;
+		display: block;
+		content:'';
+		top: -15%;
+		height: 32%;
+		width: 100%;
+		background: #bf7b40;
+		border-radius: 50%/50%;
+	}
+	.acorn::after{
+		position: absolute;
+		display: block;
+		content: '';
+		bottom: -8px;
+		left: calc((100% - 20px)/2);
+		border-top: 10px solid #bf7b40;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+	}
+	.eyes::before,.eyes::after{
+		position: absolute;
+		display: block;
+		content: '';
+		top: 45%;
+		height: 30px;
+		width: 20px;
+		background: #333;
+		border-radius: 50%;
+		z-index: 4;
+	}
+	.eyes .inner::before, .eyes .inner::after{
+		position: absolute;
+		display: block;
+		content: '';
+		top: 46%;
+		height: 8px;
+		width: 8px;
+		background: #fff;
+		border-radius: 50%;
+		z-index: 5;
+	}
+	.eyes::before{
+		left: 33%;
+	}
+	.eyes::after{
+		right: 33%;
+	}
+	.eyes .inner::before{
+		left: 36%;
+	}
+	.eyes .inner::after{
+		right: 34%;
+	}
+	.cheeks::before, .cheeks::after{
+		position: absolute;
+		display: block;
+		content: '';
+		top: 5px;
+		height: 15px;
+		width: 15px;
+		background: #ffbaba;
+		border-radius: 50%;
+	}
+	.cheeks{
+		position: absolute;
+		top: 55%;
+		left: calc((100% - 30px)/2);
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		border: 3px solid transparent;
+		border-bottom: 3px solid #333;
+		z-index: 4;
+	}
+	.cheeks::before{
+		left: -45px;
+
+	}
+	.cheeks:after{
+		right: -45px;
+	}
+</style>
+</head>
+<body>
+    <div class="canvas">
+    	<div class="hat"></div>
+    	<div class="acorn"></div>
+    	<div class="eyes">
+    		<div class="inner"></div>
+    	</div>
+    	<div class="cheeks"></div>
+    </div>
+</body>
+</html>

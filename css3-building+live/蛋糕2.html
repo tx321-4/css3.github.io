@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>蛋糕2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		background: #a1dbd1;
+	}
+	.container{
+		position: relative;
+		margin: auto;
+		display: block;
+		margin-top: 2%;
+		width: 500px;
+		height: 500px;
+	}
+	.cheesecake{
+		position: absolute;
+		width: 100%;
+		height: 70%;
+	}
+	.side{
+		position: absolute;
+		width: 51%;
+		height: 50%;
+		background: #fff1db;
+		top: 75%;
+		left: 9.5%;
+		transform: skewY(50deg);
+		box-shadow: inset 0 -30px 0 0 #dba273, inset 0px -80px 0 0  #fff1cc;
+	}
+	.top-shadow{
+		position: absolute;
+		width:20%;
+		height: 0%;
+		border-right: 250px solid transparent;
+		border-bottom: 400px solid #81afa7;
+		transform: rotate(-40deg);
+		top: 36%;
+		left: 28%;
+	}
+	.top-shadow:before{
+		position: absolute;
+		content: '';
+		width: 350px;
+		height: 40px;
+		background: #81afa7;
+		border-radius: 50%;
+		left: -1px;
+		top: 380px;
+
+	}
+	.front{
+		position: absolute;
+		width: 39%;
+		height: 50%;
+		background: #f2e5d0;
+		top:95.5%;
+		left: 60.5%;
+		transform: skewY(-39deg);
+		box-shadow: inset 0 -30px 0 0 #d09a6d, inset -80px 0 0 #f2e5c2;
+	}
+	.round-edges{
+		position: absolute;
+		width: 100%;
+		height: 30%;
+		background: #d09a6d;
+		border-radius: 50%;
+		bottom: -14%;
+		left: 0%;
+	}
+	.round-edges:before{
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: #f2e5c2;
+		border-radius: 50%;
+		bottom: 55%;
+	}
+	.round-edges:after{
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: #f2e5d0;
+		border-radius: 50%;
+		bottom: 155%;
+	}
+	.top{
+		position: absolute;
+		width: 0.5%;
+		height: 0%;
+		border-right: 250px solid transparent;
+		border-bottom: 400px solid #ebdec9;
+		transform: rotate(-40deg);
+		top: -5%;
+		left: 29%;
+	}
+	.top:before{
+		position: absolute;
+		content: '';
+		width: 253px;
+		height: 40px;
+		background: #ebdec9;
+		border-radius: 50%;
+		left: 0px;
+		top: 380px;
+	}
+	.strawberrys{
+		position: absolute;
+		width: 22%;
+		height: 30%;
+	}
+	.strawberrys div:nth-child(2){
+		transform: scale(1.2) rotateZ(10deg) rotateX(30deg);
+		top: 115%;
+		left: 120%;
+		z-index: 1;
+	}
+	.strawberrys div:nth-child(3){
+		transform: scale(1.2) rotateZ(10deg) rotateX(30deg);
+		top: 160%;
+		left: 150%;
+		z-index: 1;
+	}
+	.strawberrys div:nth-child(4){
+		transform: scale(1.3) rotateZ(20deg) rotateX(30deg);
+		top: 150%;
+		left: 200%;
+		z-index: 1;
+	}
+	.strawberrys div:nth-child(5){
+		transform: scale(1.4) rotateZ(20deg) rotateX(30deg);
+		top: 220%;
+		left: 200%;
+		z-index: 1;
+	}
+	.strawberrys div:nth-child(6){
+		transform: scale(1.4) rotateZ(15deg) rotateX(30deg);
+		top: 180%;
+		left: 270%;
+		z-index: 1;
+	}
+	.strawberrys div:nth-child(7){
+		transform: scale(1.4) rotateZ(10deg) rotateX(30deg);
+		top: 200%;
+		left: 340%;
+		z-index: 1;
+	}
+	.strawberrys div:nth-child(8){
+		transform: scale(1.6) rotateZ(5deg) rotateX(30deg);
+		top: 270%;
+		left: 270%;
+		z-index: 1;
+	}
+	.strawberry{
+		position: absolute;
+		width: 80%;
+		height: 80%;
+		border-radius: 20% 100% 100% 50% / 20% 50% 100% 100%;
+		background: #ff2d26;
+		box-shadow: -10px 4px 0 0 #cc241e, -6px 2px 0 0 #cc241e, inset 0 0 0 3px #ff5751,-6px 10px rgba(204,193,175,0.4);
+		top: 80%;
+		left: 75%;
+		transform: rotateZ(15deg) rotateX(30deg);
+	}
+	.strawberry:before{
+		position: absolute;
+		content: '';
+		border-radius: 20% 100% 100% 50% /20% 50% 100% 100%;
+		width: 80%;
+		height: 80%;
+		background: #ff4d47;
+		bottom: 5%;
+		left: 15%;
+	}
+	.strawberry:after{
+		position: absolute;
+		content: '';
+		border-radius: 20% 100% 100% 50%/20% 50% 100% 100%;
+		width: 50%;
+		height: 50%;
+		background: #ff817d;
+		bottom: 10%;
+		left: 40%;
+		box-shadow: -5px 0 0 0 #ffd5d4, -5px -5px 0 0 #ffd5d4;
+	}
+	.seeds{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	.seeds div:nth-child(2){
+		top: 30%;
+		left: -8%;
+	}
+	.seeds div:nth-child(3){
+		top: 50%;
+		left: -6%;
+	}
+	.seeds div:nth-child(4){
+		top: 60%;
+		left: -2%;
+	}
+	.seeds div:nth-child(5){
+		top: 68%;
+		left: -4%;
+	}
+	.seeds div:nth-child(6){
+		top: 90%;
+		left: 5%;
+	}
+	.seeds div:nth-child(7){
+		top: 95%;
+		left: 13%;
+	}
+	.seeds div:nth-child(8){
+		top: 80%;
+		left: 2%;
+	}
+	.seed{
+		position: absolute;
+		width: 4%;
+		height: 5%;
+		background: #ccc1a3;
+		border-radius: 50%;
+		top: 20%;
+		left: -5%;
+	}
+</style>
+</head>
+<body>
+    	<div class="container">
+    		<div class="cheesecake">
+    			<div class="top-shadow"></div>
+    			<div class="side"></div>
+    			<div class="front">
+    				<div class="round-edges"></div>
+    			</div>
+    			<div class="top"></div>
+    			<div class="strawberrys">
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    				<div class="strawberry">
+    					<div class="seeds">
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    						<div class="seed"></div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>悬停缩放</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.fond{
+		position: absolute;padding-top: 85px;top: 0;left: 0;right: 0;bottom: 0;
+		background-color: #00506b;
+	}
+	.style_prevu_kit{
+		display: inline-block;
+		border: 0;
+		width: 196px;
+		height: 210px;
+		position: relative;
+		-webkit-transition: all 200ms ease-in;
+		-webkit-transform: scale(1);
+		-ms-transition: all 200ms ease-in;
+		-ms-transform: scale(1);
+		-moz-transition: all 200ms ease-in;
+		-moz-transform: scale(1);
+		transition: all 200ms ease-in;
+		transform: scale(1);
+
+	}
+	.style_prevu_kit:hover{
+		box-shadow: 0px 0px 150px #000000;
+		z-index: 2;
+		-webkit-transition: all 200ms ease-in;
+		-webkit-transform: scale(1.5);
+		-ms-transition: all 200ms ease-in;
+		-ms-transform: scale(1.5);
+		-moz-transition: all 200ms ease-in;
+		-moz-transform: scale(1.5);
+		transition: all 200ms ease-in;
+		transform: scale(1.5);
+
+	}
+</style>
+</head>
+<body>
+    <div align="center" class="fond">
+    	<div style="width:1000px;">
+    		<div class="style_prevu_kit" style="background-color:#cb2025;"></div>
+    		<div class="style_prevu_kit" style="background-color:#f8b334;"></div>
+    		<div class="style_prevu_kit" style="background-color:#97bf0d;"></div>
+    		<div class="style_prevu_kit" style="background-color:#00a096;"></div>
+    		<div class="style_prevu_kit" style="background-color:#93a6a8;"></div>
+    	</div>
+    </div>
+</body>
+</html>

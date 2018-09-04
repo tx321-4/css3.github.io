@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>天文望远镜</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		background: #eee;
+	}
+	h3,h4{
+		font-family: "Roboto Mono";
+		text-align: center;
+		text-transform: uppercase;
+	}
+	*{
+		box-sizing: border-box;
+	}
+	.artboard{
+		width: 800px;
+		height: 600px;
+		background: #F5FAFC;
+		box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
+		border-radius: 3px;
+		margin: 50px auto;
+		border: 20px solid white;
+		position: relative;
+		overflow: hidden;
+	}
+	.telescope-base{
+		width: 200px;
+		height: 200px;
+		background: #29629f;
+		position: absolute;
+		border-radius: 50%;
+		top: 180px;
+		left: 0px;
+		right: 0px;
+		margin-left: auto;
+		margin-right: auto;
+		border: 8px solid #323062;
+	}
+	.sparkles > div{
+		width: 20px;
+		height: 20px;
+		position: absolute;
+	}
+	.sparkles > div:before, .sparkles > div:after{
+		content: "";
+		display: block;
+		width: 40%;
+		height: 100%;
+		border-radius: 20px;
+		background: #fff;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+	.sparkles > div:after{
+		transform: translate(-50%,-50%) rotate(90deg);
+	}
+	.sparkles > div.white:before, .sparkles > div.white:after{
+		background: #fff;
+	} 
+	.sparkles > div.blue:before, .sparkles > div.blue:after{
+		background: #323062;
+	}
+	.sparkles > div.med{
+		transform: scale(0.6);
+	}
+	.sparkles > div.small{
+		transform: scale(0.4);
+	}
+	.sparkles > div.one{
+		top: 125px;
+		left: 30px;
+	}
+	.sparkles > div.two{
+		top: 10px;
+		left: 90px;
+	}
+	.sparkles > div.three{
+		top: 26px;
+		left: 24px;
+	}
+	.sparkles > div.four{
+		top: 104px;
+		left: -90px;
+	}
+	.sparkles > div.five{
+		top: 215px;
+		left: 173px;
+	}
+	.sparkles > div.six{
+		top: 174px;
+		left: 0px;
+	}
+	.sparkles > div.seven{
+		top: 136px;
+		left: 118px;
+	}
+	.sparkles > div.eight{
+		top: 88px;
+		left: 134px;
+	}
+	.sparkles > div.nine{
+		top: 63px;
+		left: 235px;
+	}
+	.sparkles > div.ten{
+		top: 124px;
+		left: -35px;
+	}
+	.sparkles > div.eleven{
+		top: 140px;
+		left: 181px;
+	}
+	.sparkles > div.twelve{
+		top: 7px;
+		left: -34px;
+	}
+	.sparkles > div.thirteen{
+		top: -53px;
+		left: -15px;
+	}
+	.sparkles > div.fourteen{
+		top: -43px;
+		left: 55px;
+
+	}
+	.sparkles > div.fifteen{
+		top: 208px;
+		left: 88px;
+	}
+	.sparkles > div.sixteen{
+		top: -23px;
+		left: 125px;
+	}
+	.sparkles > div.pulse{
+		animation: pulse 1s linear infinite;
+	}
+	.sparkles > div.pulse-1{
+		animation : pulse 1s 300ms linear infinite;
+	}
+	.sparkles > div.pulse-2{
+		animation: pulse 1s 600ms linear infinite;
+	}
+	.sparkles > div.pulse-3{
+		animation: pulse 1s 900ms linear infinite;
+	}
+	.telescope-top{
+		position: absolute;
+		top: 122px;
+		left: 180px;
+		transform: rotate(-13deg);
+		z-index: 5;
+	}
+	.telescope-part1{
+		position: absolute;
+		width: 130px;
+		height: 45px;
+		background: #ffedb9;
+		top: 151px;
+		left: 190px;
+		border-radius: 25px;
+		transform: rotate(90deg);
+		border: 8px solid #323062;
+		z-index: 1;
+		overflow: hidden;
+	}
+	.telescope-part2{
+		position: absolute;
+		width: 90px;
+		height: 30px;
+		background: #40c8e1;
+		top: 158px;
+		left: 237px;
+		transform: rotate(90deg);
+		border: 8px solid #323062;
+		border-top-left-radius: 70px;
+		border-top-right-radius: 70px;
+		overflow: hidden;
+	}
+	.telescope-shadow1{
+		position: absolute;
+		width: 75px;
+		height: 55px;
+		background: #ffda94;
+		border-radius: 25px;
+		left: 24px;
+		top: -12px;
+		z-index: 2;
+	}
+	.telescope-shadow2{
+		position: absolute;
+		width: 98px;
+		height: 55px;
+		background: #eec178;
+		border-radius: 25px;
+		left: 16px;
+		top: -15px;
+	}
+	.telescope-shadow3{
+		position: absolute;
+		width:35px;
+		height: 35px;
+		background: #33b1d3;
+		border-radius: 25px;
+		left: 18px;
+		top: -10px;
+	}
+	.telescope-part3{
+		position: absolute;
+		top: 130px;
+		left: 125px;
+		width: 115px;
+		height: 85px;
+		background: #fff;
+		border: 8px solid #323062;
+		overflow: hidden;
+		z-index: 3;
+		border-radius: 10px; 
+	}
+	.telescope-shadow4{
+		position: absolute;
+		width: 100%;
+		height: 22.3px;
+		background: #b5d3f6;
+		bottom: 0;
+	}
+	.telescope-shadow5{
+		position: absolute;
+		width: 100%;
+		height: 22.3px;
+		background: #eaf2ff;
+		top: 25px;
+	}
+	.telescope-part4{
+		position: absolute;
+		width: 100px;
+		height: 50px;
+		background: #fff;
+		border: 8px solid #323062;
+		top: 149px;
+		left: 35px;
+		z-index: 1;
+		border-radius: 10px;
+	}
+	.telescope-shadow7{
+		position: absolute;
+		background: #b5d3f6;
+		width: 100%;
+		height: 12px;
+		bottom: 0;
+	}
+	.telescope-shadow8{
+		position: absolute;
+		background: #eaf2ff;
+		width: 100%;
+		height: 12px;
+		top: 10px;
+	}
+	.telescope-body-line1{
+		position: absolute;
+		width: 40px;
+		height: 8px;
+		background: #323062;
+		top: 7px;
+		left: 48px;
+		border-radius: 5px;
+	}
+	.telescope-body-line2{
+		position: absolute;
+		width: 17px;
+		height: 8px;
+		background: #323062;
+		top: 7px;
+		left: 25px;
+		border-radius: 5px;
+	}
+	.telescope-part5{
+		position: absolute;
+		height: 30px;
+		width: 30px;
+		background: #ffedb9;
+		border: 8px solid #323062;
+		top: 160px;
+		left: 21px;
+		border-radius: 10px;
+	}
+	.telescope-bottom{
+		position: absolute;
+		width: 60px;
+		border-width: 50px 18px 0 ;
+		border-style: solid;
+		border-color: #323062 transparent;
+		top: 282px;
+		left: 348px;
+	}
+	.telescope-bottom:after{
+		content: "";
+		position: absolute;
+		width: 16px;
+		border-width: 36px 13px 0;
+		border-style: solid;
+		border-color: #96b4dc transparent;
+		top: -43px;
+		left: -9px;
+	}
+	.telescope-hold-shadow{
+		position: absolute;
+		width: 51px;
+		height: 0px;
+		border-width: 25px 16px 0 6px;
+		border-style: solid;
+		border-color: #7094c1 transparent;
+		z-index: 1;
+		top: -51px;
+		left: -10px;
+		transform: rotate(-130deg);
+	}
+	.telescope-hold-line1{
+		width: 8px;
+		height: 82px;
+		position: absolute;
+		background: #323062;
+		transform: rotate(20deg);
+		top: -42px;
+		left: -1px;
+	}
+	.telescope-hold-line3{
+		width: 8px;
+		height: 62px;
+		position: absolute;
+		background: #323062;
+		top: -20px;
+		left: 23px;
+		transform: rotate(-20deg);
+	}
+	.author{
+		text-align: center;
+	}
+	@keyframes pulse{
+		0%{
+			transform: scale(1);
+		}
+		90%{
+			transform: scale(0.3);
+		}
+		100%{
+			transform: scale(1);
+		}
+	}
+	@-webkit-keyframes pulse{
+		0%{
+			transform: scale(1);
+		}
+		90%{
+			transform: scale(0.3);
+		}
+		100%{
+			transform: scale(1);
+		}
+	}
+</style>
+</head>
+<body>
+    <div class="artboard">
+    	<div class="telescope-base">
+    		<div class="sparkles">
+    			<div class="one white small pulse-1"></div>
+    			<div class="two white small pulse-2"></div>
+    			<div class="three white small pulse-3"></div>
+    			<div class="four blue pulse-2"></div>
+    			<div class="five blue pulse-1"></div>
+    			<div class="six blue small pulse"></div>
+    			<div class="seven white small pulse"></div>
+    			<div class="eight white small pulse-3"></div>
+    			<div class="nine blue pulse"></div>
+    			<div class="ten blue small-1 pulse"></div>
+    			<div class="eleven blue small pulse"></div>
+    			<div class="twelve blue small pulse-2"></div>
+    			<div class="thirteen blue small pulse"></div>
+    			<div class="fourteen blue blue med pulse-3"></div>
+    			<div class="fifteen blue small pulse-1"></div>
+    			<div class="sixteen blue small pulse"></div>
+
+    		</div>
+    	</div>
+    	<div class="telescope-top">
+    		<div class="telescope-part1">
+    			<div class="telescope-shadow1"></div>
+    			<div class="telescope-shadow2"></div>
+    		</div>
+		<div class="telescope-part2">
+			<div class="telescope-shadow3"></div>
+		</div>
+		<div class="telescope-part3">
+			<div class="telescope-shadow4"></div>
+			<div class="telescope-shadow5"></div>
+			<div class="telescope-shadow6"></div>
+			<div class="telescope-body-line1"></div>
+			<div class="telescope-body-line2"></div>
+		</div>
+		<div class="telescope-part4">
+			<div class="telescope-shadow7"></div>
+			<div class="telescope-shadow8"></div>
+		</div>
+		<div class="telescope-part5">
+			<div class="telescope=shadow9"></div>
+		</div>
+    	</div>
+    	<div class="telescope-bottom">
+    		<div class="telescope-hold">
+    			<div class="telescope-hold-shadow"></div>
+    		</div>
+    		<div class="telescope-hold-line1"></div>
+    		<div class="telescope-hold-line2"></div>
+    		<div class="telescope-hold-line3"></div>
+    	</div>
+    </div>
+</body>
+</html>

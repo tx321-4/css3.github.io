@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Thela</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+        body{
+                background: #f7f4e2;
+        }
+        .container{
+                width: 800px;
+                height: 625px;
+                margin: 100px auto 0 auto;
+                position: relative;
+        }
+        .perspective{
+                perspective: 400px;
+        }
+        .top{
+                background-color: #fd551f;
+                width: 700px;
+                height: 75px;
+                margin: 0 auto;
+                transform: rotateX(50deg);
+                -webkit-transform: rotateX(50deg);
+                 -moz-transform: rotateX(50deg);
+                -o-transform: rotateX(50deg);
+                 -ie-transform: rotateX(50deg);
+        }
+        .top-bottom{
+                background-color: #c41e1d;
+                height: 10px;
+                margin: -12px auto 0 auto;
+                width: 753px;
+        }
+        .frame{
+                border-left: 10px solid #fd551f;
+                border-right: 10px solid #fd551f;
+                border-bottom: 40px solid #fd551f;
+                height: 300px;
+                width: 575px;
+                margin: 0 auto;
+                background-color: #0d5491;
+                position: relative;
+        }
+        .frame::before{
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 12%;
+                background-color: #0f74c7;
+        }
+        .handle{
+                background-color: #c41e1d;
+                height: 79px;
+                width: 20px;
+                position: absolute;
+                left: -30px;
+                top: 100px;
+                border-top-left-radius: 25px;
+        }
+        .handle::before{
+                content: '';
+                background-color: #fd551f;
+                height: 20px;
+                width: 6px;
+                position: absolute;
+                top: 30px;
+                left: 6px;
+                border-radius: 5px;
+        }
+        .nimbu-mirchi1{
+                position: absolute;
+                left: -60px;
+        }
+        .nimbu-mirchi2{
+                position: absolute;
+                right: -30px;
+        }         
+        .nimbu-mirchi::before{
+                content: '';
+                height: 10px;
+                background-color: #2e233b;
+                width: 2px;
+                position: absolute;
+                left: 20px;
+        }
+        .nimbu{
+                background-color: #ffd62a;
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                position: absolute;
+                top: 8px;
+                left: 13px;
+        }
+        .mirchi{
+                background-color: #91d9cc;
+                height: 5px;
+                width: 14px;
+                position: absolute;
+                top: 22px;
+                left: 14px;
+                border-radius: 5px;
+        }
+        .nimbu2{
+                background-color: #fd551f;
+                height: 8px;
+                width: 8px;
+                border-radius: 50%;
+                position: absolute;
+                left: 17px;
+                top: 27px;
+        }
+        .bar{
+                position: absolute;
+                background-color: #fd551f;
+                height: 14px;
+                width: 40px;
+        }
+        .bar1{
+                top: 100px;
+                left: 0;
+        }
+        .bar2{
+                top: 200px;left: 0;
+        }
+        .bar3{
+                top: 100px;right: 0;
+        }
+        .bar4{
+                top: 200px;right: 0;
+        }
+        .bar-shadow{
+                width: 0;
+                height: 0;
+                border-top: 50px solid #0d5491;
+                border-right: 40px solid transparent;
+                position: absolute;
+        }
+        .bar-shadow1{
+                top: 114px;
+                left: 0;
+        }
+        .bar-shadow2{
+                top: 214px;
+                left:0;
+        }
+        .jar{
+                position: absolute;
+                height: 51px;
+                width: 35px;
+                background-color: #cee3e7;
+                border-radius: 12px 12px 5px 5px;
+                z-index: 1;
+        }
+        .jar::after,.sjar::after{
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 10px;
+                top: 0;
+                right: 0;
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 5px;
+                background-color: #A7b1bc;
+        }
+        .jar::before{
+                content: '';
+                position: absolute;
+                background-color: #ffffff;
+                width: 3px;
+                height: 30px;
+                border-radius: 5px;
+                left: 6px;
+                top: 8px;
+        }
+        .jar .cap{
+                height: 7px;
+                width: 20px;
+                top: -7px;
+                position: absolute;
+                left: 8px;
+                border-radius: 5px;
+        }
+        .jar1{
+                top: 49px;
+                left: 2px;
+        }
+        .jar1 .cap{
+                background-color: #cee3e7;
+        }
+        .jar2{
+                top: 149px;
+                left: 2px;
+        }
+        .jar2 .cap{
+                background-color: #fd5820;
+        }
+        .jar3{
+                bottom: 0px;
+                left: 30px;
+        }
+        .jar3 .cap{
+                background: #ffd62a;
+        }
+        .jar4{
+                top: 49px;
+                right: 2px;
+        }
+        .jar4 .cap{
+                background-color: #cee3e7;
+        }
+        .jar5{
+                top:149px;
+                right: 2px;
+        }
+        .jar5 .cap{
+                background-color: #fd5820;
+        }
+        .sjar{
+                background-color: #d8ced8;
+                height: 35px;
+                width: 40px;
+                position: absolute;
+                bottom: 0;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+        }
+        .sjar::after{
+                background-color: #938294;
+                border-radius: 0;
+                border-top-right-radius: 3px;
+        }
+        .sjar::before{
+                content: '';
+                position: absolute;
+                background-color: #feffef;
+                width: 7px;
+                height: 23px;
+                border-radius: 2px;
+                left: 6px;
+                bottom: 0;
+        }
+        .sjar .cap{
+                height: 13px;
+                width: 100%;
+                top: -17px;
+                position: absolute;
+                left: 0;
+                border-radius: 2px;
+                border-bottom: 4px solid #428ccb;
+        }
+        .sjar .cap::before{
+                content: "";
+                height: 100%;
+                width: 5px;
+                top: 0;
+                left: 3px;
+                background-color: #feffef;
+                position: absolute;
+        }
+        .sjar1{
+                right: 8px;
+                height: 52px;
+                width: 47px;
+        }
+        .sjar1 .cap{
+                background-color: #cee3e7;
+        }
+        .sjar2{
+                right: 60px;
+        }
+        .sjar2 .cap{
+                background-color: #cee3e7;
+        }
+        .sjar3{
+                right: 103px;
+        }
+        .sjar3 .cap{
+                background-color: #d8ced8;
+        }
+        .sjar4{
+                right: 148px;
+        }
+        .sjar4 .cap{
+                background-color: #d8ced8;
+        }
+        .sjar5{
+                right: 193px;
+        }
+        .sjar5 .cap{
+                background-color: #cee3e7;
+        }
+        .cup-container{
+                background-color: #0b3d69;
+                border-bottom: 3px solid #05060a;
+                height: 120px;
+                width: 100px;
+                position: absolute;
+                top: 35px;
+                right: 65px;
+        }
+        .cup-container .cup{
+                background-color: #8fa7c1;
+                position: absolute;
+                bottom: 0;
+                left: 20px;
+                height: 25px;
+                width: 20px;
+        }
+        .cup-container .cup::after{
+                content: '';
+                background-color: transparent;
+                height: 10px;
+                width: 10px;
+                border: 2px solid #8fa7c1;
+                border-radius: 50%;
+                position: absolute;
+                top: 3px;
+                right: -8px;
+        }
+        .rope1{
+                background-color: #fff;
+                height: 2px;
+                width: 100%;
+                left: 0;
+                top: 5px;
+                position: absolute;
+
+        }
+        .zigzag::before{
+                content: '';
+                display: block;
+                position: absolute;
+                top: 2px;
+                width: 100%;
+                height: 20px;
+                transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                -ie-transform: rotate(180deg);
+        }
+        .rope1::before{
+                background: linear-gradient(45deg, transparent 33.333%, #fd551f 33.333%, #fd551f 66.667%, transparent 66.667%),
+                linear-gradient(-45deg, transparent 33.333%, #fd551f 33.333%, #fd551f 66.667%, transparent 66.667%);
+                background-size: 40px 80px;
+        }
+        .rope2{
+                background-color: #050508;
+                height: 2px;
+                width: 100%;
+                left: 0;
+                top: 45px;
+                position: absolute;
+
+        }
+        .strip1{
+                height: 100px;
+                width: 12px;
+                background-color: #fffdef;
+                position: absolute;
+                top: 45px;
+                left: 100px;
+                z-index: 1;
+        }
+        .strip1 .line{
+                background-color: #0d5491;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+        }
+        .strip1 .line1{
+                bottom: 10px;
+        }
+        .strip1 .line2{
+                bottom: 20px;
+        }
+        .strip1 .line3{
+                bottom: 30px;
+        }
+        .strip1  .line4{
+                bottom: 40px;
+        }
+        .strip2{
+                height: 140px;
+                width: 30px;
+                background: #99d7ca;
+                position: absolute;
+                top: 45px;
+                left: 125px;
+                z-index: 1;
+        }
+        .strip2 .line{
+                background-color: #193c57;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+        }
+        .strip2 .line::after{
+                content: '';
+                width: 100%;
+                height: 2px;
+                top: 2px;
+                position: absolute;
+                background-color: #fff;
+        }
+        .strip2 .line1{
+                bottom: 15px;
+        }
+        .strip2 .line2{
+                bottom: 30px;
+        }
+        .strip2 .line3{
+                bottom: 45px;
+        }
+        .strip2 .line4{
+                bottom: 60px;
+        }
+        .strip2 .line5{
+                bottom: 75px;
+        }
+        .strip2 .line6{
+                bottom: 90px;
+        }
+        .strip2 .line7{
+                bottom: 105px;
+        }
+        .strip2 .line8{
+                bottom: 120px;
+        }
+        .strip3{
+                height: 80px;
+                width: 30px;
+                background-color: #b3c2d5;
+                position: absolute;
+                top: 45px;
+                left: 165px;
+                z-index: 1;
+        }
+        .strip3 .line{
+                background-color: #fffdef;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+        }
+        .strip3 .line1{
+                bottom: 15px;
+        }
+       .strip3 .line2{
+                bottom: 30px;
+        }
+        .strip3 .line3{
+                bottom: 45px;
+        }
+        .strip3 .line4{
+                bottom: 60px;
+        }
+        .strip3 .line5{
+                bottom: 75px;
+        }
+        .strip3 .line6{
+                bottom: 90px;
+        }
+        .strip4{
+                height: 110px;
+                width: 25px;
+                background-color: #8fa7c1;
+                position: absolute;
+                top: 45px;
+                left: 177px;
+        }
+        .strip5{
+                height: 70px;
+                width: 15px;
+                background-color: #e0572d;
+                position: absolute;
+                top: 45px;
+                left: 215px;
+        }
+        .strip6{
+                height: 150px;
+                width: 15px;
+                background-color: #94d9c9;
+                position: absolute;
+                top: 45px;
+                left: 230px;
+        }
+        .strip6 .line{
+                background-color: #0d5491;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+        }
+        .strip6 .line1{
+                bottom: 10px;
+        }
+        .strip6 .line2{
+                bottom: 20px;
+        }
+        .strip6 .line3{
+                bottom: 30px;
+        }
+        .strip6 .line4{
+                bottom: 40px;
+        }
+        .strip6 .line5{
+                bottom: 50px;
+        }
+        .strip6 .line6{
+                bottom: 60px;
+        }
+        .strip6 .line7{
+                bottom: 70px;
+        }
+        .strip6 .line8{
+                bottom: 80px;
+        }
+        .strip6 .line9{
+                bottom: 90px;
+        }
+        .strip6 .line10{
+                bottom: 100px;
+        }
+        .strip6 .line11{
+                bottom: 110px;
+        }
+        .strip7{
+                height: 90px;
+                width: 30px;
+                background-color: #1277c1;
+                position: absolute;
+                top: 45px;
+                left: 265px;
+        }
+        .strip7 .line{
+                background-color: #193c57;
+                position: absolute;
+                width: 100%;
+                height: 3px;
+        }
+        .strip7 .line::after{
+                content: '';
+                width: 100%;
+                height: 2px;
+                top: 2px;
+                position: absolute;
+                background-color: #2f91d1;
+        }
+        .strip7 .line1{
+                bottom: 15px;
+        }
+        .strip7 .line2{
+                bottom: 30px;
+        }
+        .strip8{
+                position: absolute;
+                left: 350px;
+                top: 45px;
+        }
+        .strip8::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 1px;
+                height: 75px;
+                background-color: #05060a;
+        }
+        .strip8 .line{
+                height: 7px;
+                width: 27px;
+                background-color: #edc636;
+                border-radius: 5px;
+                position: absolute;
+        }
+        .strip8 .line1{
+                left: -27px;
+                top: 45px;
+        }
+        .strip8 .line2{
+                left: -27px;
+                top: 55px;
+        }
+        .strip8 .line3{
+                left: -27px;
+                top: 65px;
+        }
+        .strip8 .line4{
+                left: 2px;
+                top:45px;
+        }
+        .strip8 .line5{
+                left: 2px;
+                top: 55px;
+        }
+        .strip8 .line6{
+                left: 2px;
+                top: 65px;
+        }
+        .strip8 .line7{
+                left: -23px;
+                top: 80px;
+                transform: rotate(131deg);
+        }
+         .strip8 .line8{
+                left: -10px;
+                top: 81px;
+                transform: rotate(251deg);
+        }
+         .strip8 .line9{
+                left: 0px;
+                top: 76px;
+                transform: rotate(200deg);
+        }
+        .overlay1{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 95px;
+                background-color: rgba(0,0,0,0.2);
+                z-index: 1;
+        }
+        .gas{
+                position: absolute;
+                left: 135px;
+                bottom: 0;
+                background-color: #fd551f;
+                width: 50px;
+                height: 30px;
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+
+        }
+        .gas .bottom{
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                height: 15px;
+                background-color: #c22e11;
+                position: absolute;
+
+        }
+        .gas .rod{
+                width: 8px;
+                left: 41%;
+                top: -15px;
+                height: 15px;
+                background-color: #092541;
+                position: absolute;
+        }
+        .gas .burner{
+                width: 70px;
+                left: -10px;
+                top: -20px;
+                height: 5px;
+                background-color: #edc636;
+                position: absolute;
+                border-radius: 2px;
+        }
+        .gas .burner::after{
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                height: 2px;
+                border-radius: 2px;
+        }
+        .pan{
+                background-color: #adbfd4;
+                position: absolute;
+                left: 125px;
+                bottom: 52px;
+                width: 70px;
+                height: 30px;
+        }
+        .pan::after{
+                content: '';
+                background-color: #1275cb;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 50%;
+                height: 30px;
+        }
+        .pan .cap{
+                position: absolute;
+                background-color: #adbfd4;
+                left: -5px;
+                top: -3px;
+                width: 80px;
+                height: 3px;
+        }
+        .pan .cap::after{
+                content: '';
+                position: absolute;
+                background-color: #092541;
+                right: -30px;
+                top: 3px;
+                width:35px;
+                height: 7px;
+        }
+        .cloth{
+                position: absolute;
+                background-color: #edc636;
+                height: 105px;
+                width: 45px;
+                bottom: -103px;
+                left: 210px;
+        }
+        .cloth .line{
+                height: 15px;
+                width: 100%;
+                position: absolute;
+                left: 0;
+        }
+        .cloth .line1,.cloth .line3,.cloth .line5,.cloth .line7{
+                background-color: #0f74c7;
+        }
+        .cloth .line2,.cloth .line4,.cloth .line6,.cloth .line8{
+                background-color: transparent;
+        }
+        .cloth .line1{
+                bottom: 0px;
+        }
+        .cloth .line2{
+                bottom: 15px;
+        }
+        .cloth .line3{
+                bottom: 30px;
+        }
+        .cloth .line4{
+                bottom: 45px;
+        }
+        .cloth .line5{
+                bottom: 60px;
+        }
+        .cloth .line6{
+                bottom: 75px;
+        }
+        .cloth .line7{
+                bottom: 90px;
+        }
+        .cloth .bottom{
+                position: absolute;
+                bottom: -7px;
+                width: 100%;
+        }
+        .cloth .bottom .sline{
+                background-color: #0f74c7;
+                height: 10px;
+                width: 4px;
+                top: -9px;
+                border-radius: 3px;
+                position: absolute;
+
+        }
+        .cloth .bottom .sline1{
+                left: 0px;
+        }
+        .cloth .bottom .sline2{
+                left: 10px;
+        }
+        .cloth .bottom .sline3{
+                left: 20px;
+        }
+        .cloth .bottom .sline4{
+                left: 30px;
+        }
+        .cloth .bottom .sline5{
+                left: 40px;
+        }
+        .wheel-connector{
+                position: absolute;
+                border: 12px solid #c41e1d;
+                height: 100px;
+                width: 320px;
+                bottom: -152px;
+                border-top: 0px;
+                left: 115px;
+                box-shadow: 0px 2px 0px #392e44;
+                z-index: 2;
+        }
+        .wheel-connector::after{
+                content: '';
+                position: absolute;
+                height: 7px;
+                width: 7px;
+                background-color: #392e44;
+                border-radius: 7px;
+                left: -9px;
+                bottom: -8px;
+        }
+        .wheel-connector::before{
+                content: '';
+                position: absolute;
+                height: 7px;
+                width: 7px;
+                background-color: #392e44;
+                border-radius: 7px;
+                right: -9px;
+                bottom: -8px;
+        }
+        .wheel{
+                height: 170px;
+                width: 170px;
+                border: 5px solid #e55024;
+                position: absolute;
+                border-radius: 50%;
+        }
+        .wheel::before{
+                content: '';
+                position: absolute;
+                border: 10px solid #392e44;
+                border-radius: 100%;
+                height: 180px;
+                width: 180px;
+                top: -15px;
+                left: -15px;
+        }
+        .wheel1{
+                bottom: -233px;
+                left: 32px;
+        }
+        .wheel2{
+                bottom: -233px;
+                right: 32px;
+        }
+        .wheel .line{
+                position: absolute;
+                width: 1px;
+                background-color: #392e44;
+                height: 170px;
+                top: 0;
+                left: 84px;
+        }
+        .wheel .line2{
+                transform: rotate(20deg);
+                -webkit-transform: rotate(20deg);
+                -moz-transform: rotate(20deg);
+                -o-transform: rotate(20deg);
+                -ie-transform: rotate(20deg);
+        }
+        .wheel .line3{
+                transform: rotate(40deg);
+                -webkit-transform: rotate(40deg);
+                -moz-transform: rotate(40deg);
+                -o-transform: rotate(40deg);
+                -ie-transform: rotate(40deg);
+        }
+        .wheel .line4{
+                transform: rotate(60deg);
+                -webkit-transform: rotate(60deg);
+                -moz-transform: rotate(60deg);
+                -o-transform: rotate(60deg);
+                -ie-transform: rotate(60deg);
+        }
+        .wheel .line5{
+                transform: rotate(80deg);
+                -webkit-transform: rotate(80deg);
+                -moz-transform: rotate(80deg);
+                -o-transform: rotate(80deg);
+                -ie-transform: rotate(80deg);
+        }
+        .wheel .line6{
+                transform: rotate(100deg);
+                -webkit-transform: rotate(100deg);
+                -moz-transform: rotate(100deg);
+                -o-transform: rotate(100deg);
+                -ie-transform: rotate(100deg);
+        }
+        .wheel .line7{
+                transform: rotate(120deg);
+                -webkit-transform: rotate(120deg);
+                -moz-transform: rotate(120deg);
+                -o-transform: rotate(120deg);
+                -ie-transform: rotate(120deg);
+        }
+        .wheel .line8{
+                transform: rotate(140deg);
+                -webkit-transform: rotate(140deg);
+                -moz-transform: rotate(140deg);
+                -o-transform: rotate(140deg);
+                -ie-transform: rotate(140deg);
+        }
+        .wheel .line9{
+                transform: rotate(160deg);
+                -webkit-transform: rotate(160deg);
+                -moz-transform: rotate(160deg);
+                -o-transform: rotate(160deg);
+                -ie-transform: rotate(160deg);
+        }
+        .street{
+                height: 35px;
+                width: 790px;
+                background-color: #ddd;
+                position: absolute;
+                bottom: 0px;
+                 left: 50px;
+                border-radius: 18px;
+                z-index: -1;
+        }
+        .dustbin{
+                position: absolute;
+                height: 120px;
+                width: 90px;
+                background-color: #8fa7c1;
+                right: 0;
+                bottom: 23px;
+                border-radius: 0px 0px 10px 10px;
+        }
+        .dustbin::before{
+                position: absolute;
+                content: '';
+                height: 3px;
+                background-color: #4b5866;
+                width: 100%;
+                top: 25px;
+                z-index: 1;
+        }
+        .dustbin::after{
+                content: '';
+                position: absolute;
+                background-color: #b6c7d8;
+                height: 90px;
+                width: 10px;
+                border-radius: 0px 0px 5px 0px;
+                right: 10px;
+                top: 0;
+        }
+        .perspective2{
+                perspective: 400px;
+                position: absolute;
+                bottom: -9px;
+                left: 295px;
+        }
+        .perspective2 .cup{
+                transform: rotateX(-55deg);
+                height: 42px;
+                width: 17px;
+                background-color: rgba(255,255,255,.4);
+        }
+        .perspective2 .cup::after{
+                content: '';
+                position:absolute;
+                background-color: #edc636;
+                height: 12px;
+                width: 100%;
+                bottom: 0;
+        }
+        .light .wire{
+                position: absolute;
+                background-color: #e8dbd0;
+                height: 23px;
+                width: 2px;
+                top: 0;
+                right: 42px;
+                z-index: 3;
+        }
+        .light .holder{
+                background-color: #ffd62a;
+                position: absolute;
+                height: 7px;
+                width: 9px;
+                border-radius: 2px;
+                right: 38px;
+                top: 23px;
+                z-index: 3;
+        }
+        .light .bulb{
+                background-color: #e8dbd0;
+                height: 20px;
+                width: 20px;
+                border-radius: 15px;
+                position: absolute;
+                top: 29px;
+                right: 33px;
+                z-index: 3;
+        }
+        .light .bulb::before{
+                content: '';
+                position: absolute;
+                height: 7px;
+                width: 7px;
+                background-color: #fff;
+                border-radius: 7px;
+                bottom: 3px;
+                left: 5px;
+        }
+</style>
+</head>
+<body>
+        <div class="container">
+        	<div class="perspective">
+        		<div class="top"></div>
+        		<div class="top-bottom"></div>
+        	</div>
+        	<div class="frame">
+        		<div class="nimbu-mirchi nimbu-mirchi1">
+                                                	       <div class="nimbu"></div>
+                                                	       <div class="mirchi"></div>
+                                                	       <div class="nimbu2"></div>
+        		</div>
+        		<div class="nimbu-mirchi nimbu-mirchi2">
+                                                               <div class="nimbu"></div>
+                                                               <div class="mirchi"></div>
+                                                               <div class="nimbu2"></div>                             
+                                                        </div>
+                                                        <div class="light">
+                                                                <div class="wire"></div>
+                                                                <div class="holder"></div>
+                                                                <div class="bulb"></div>
+                                                        </div>
+                                                        <div class="handle"></div>
+
+                                                        <div class="bar bar1"></div>
+                                                        <div class="bar bar2"></div>
+                                                        <div class="bar bar3"></div>
+                                                        <div class="bar bar4"></div>
+
+                                                        <div class="bar-shadow bar-shadow1"></div>
+                                                        <div class="bar-shadow bar-shadow2"></div>
+                                                        <div class="jar jar1">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="jar jar2">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="jar jar3">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="jar jar4">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="jar jar5">
+                                                                <div class="cap"></div>
+                                                        </div>
+
+                                                        <div class="sjar sjar1">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="sjar sjar2">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="sjar sjar3">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="sjar sjar4">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="sjar sjar5">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="cup-container">
+                                                                <div class="cup"></div>
+                                                        </div>
+                                                        <div class="rope1 zigzag"></div>
+                                                        <div class="strip1">
+                                                                <div class="line line1"></div>
+                                                                <div class="line line2"></div>
+                                                                <div class="line line3"></div>
+                                                                <div class="line line4"></div>
+                                                        </div>
+                                                        <div class="strip2">
+                                                                <div class="line line1"></div>
+                                                                <div class="line line2"></div>
+                                                                <div class="line line3"></div>
+                                                                <div class="line line4"></div>
+                                                                <div class="line line5"></div>
+                                                                <div class="line line6"></div>
+                                                                <div class="line line7"></div>
+                                                                <div class="line line8"></div>
+                                                        </div>
+                                                         <div class="strip3">
+                                                                <div class="line line1"></div>
+                                                                <div class="line line2"></div>
+                                                                <div class="line line3"></div>
+                                                                <div class="line line4"></div>
+                                                                <div class="line line5"></div>
+                                                        </div>
+                                                        <div class="strip4"></div>
+                                                        <div class="strip5"></div>
+                                                        <div class="strip6">
+                                                                <div class="line line1"></div>
+                                                                <div class="line line2"></div>
+                                                                <div class="line line3"></div>
+                                                                <div class="line line4"></div>
+                                                                <div class="line line5"></div>
+                                                                <div class="line line6"></div>
+                                                                <div class="line line7"></div>
+                                                                <div class="line line8"></div>
+                                                                <div class="line line9"></div>
+                                                                <div class="line line10"></div>
+                                                                <div class="line line11"></div>
+                                                        </div>
+                                                        <div class="strip7">
+                                                                <div class="line line1"></div>
+                                                                <div class="line line2"></div>
+                                                        </div>
+                                                        <div class="strip8">
+                                                                <div class="line line1"></div>
+                                                                <div class="line line2"></div>
+                                                                <div class="line line3"></div>
+                                                                <div class="line line4"></div>
+                                                                <div class="line line5"></div>
+                                                                <div class="line line6"></div>
+                                                                <div class="line line7"></div>
+                                                                <div class="line line8"></div>
+                                                                <div class="line line9"></div>     
+                                                        </div>
+                                                        <div class="overlay1"></div>
+                                                        <div class="gas">
+                                                                <div class="bottom"></div>
+                                                                <div class="rod"></div>
+                                                                <div class="burner"></div>
+                                                        </div>
+                                                        <div class="pan">
+                                                                <div class="cap"></div>
+                                                        </div>
+                                                        <div class="rope2"></div>
+                                                        <div class="cloth">
+                                                                <div class="line line1"></div>
+                                                                <div class="line line2"></div>
+                                                                <div class="line line3"></div>
+                                                                <div class="line line4"></div>
+                                                                <div class="line line5"></div>
+                                                                <div class="line line6"></div>
+                                                                <div class="line line7"></div>
+                                                        
+                                                        <div class="bottom">
+                                                                <div class="sline sline1"></div>
+                                                                <div class="sline sline2"></div>
+                                                                <div class="sline sline3"></div>
+                                                                <div class="sline sline4"></div>
+                                                                <div class="sline sline5"></div>
+                                                        </div>                                                     
+        	</div>
+                <div class="wheel-connector"></div>
+                <div class="wheel wheel1">
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                        <div class="line line3"></div>
+                        <div class="line line4"></div>
+                        <div class="line line5"></div>
+                        <div class="line line6"></div>
+                        <div class="line line7"></div>
+                        <div class="line line8"></div>
+                        <div class="line line9"></div>     
+                </div>
+                <div class="wheel wheel2">
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                        <div class="line line3"></div>
+                        <div class="line line4"></div>
+                        <div class="line line5"></div>
+                        <div class="line line6"></div>
+                        <div class="line line7"></div>
+                        <div class="line line8"></div>
+                        <div class="line line9"></div>     
+                </div>
+                <div class="perspective2">
+                        <div class="cup"></div>
+                </div>
+        </div>
+        <div class="street"></div>
+        <div class="dustbin"></div>
+        </div>
+</body>
+</html>

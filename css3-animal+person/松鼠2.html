@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>松鼠</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		background: #6dd3ce;
+	}
+
+	.container, .head, .eye span, .cheek span, .teeth span, .nose, .nose::after, .mouth, .ear span, .tummy, .arm span, .foot span, .sign, .logo, .logo span, .tail{
+		margin: auto;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+	.container{
+		height: 450px;
+		width: 450px;
+		left: 0;
+	}
+	.tail{
+		height: 80%;
+		width: 30%;
+		background: #3a3a46;
+		top: -20%;
+		left: 50%;
+		border-radius: 45% 45% 0 0;
+		transform: rotate(30deg);
+	}
+	.sign{
+		background: #f7ede2;
+		height: 35%;
+		width: 40%;
+		z-index: 3;
+		top: 20%;
+		box-shadow: 3px 3px 3px #3a3a46;
+		font-family: Gloria Hallelujah;
+		font-weight: bold;
+		font-size: 160%;
+		color: #3a3a46;
+		text-align: center;
+		padding: ;
+	}
+	.logo span{
+		height: 8%;
+		width: 4%;
+		background: #ebbab9;
+		border-radius: 20% 20% 20% 40%;
+	}
+	.logo span:nth-child(1){
+		left: -20%;
+		top: 0;
+	}
+	.logo span:nth-child(2){
+		left: -10%;
+		top: -3%;
+	}
+	.logo span:nth-child(3){
+		left: 0%;
+		top: -5%;
+		height: 10%;
+	}
+	.logo span:nth-child(4){
+		left: 10%;
+		top: -2%;
+	}
+	.logo span:nth-child(5){
+		left: 3%;
+		top: 14%;
+		height: 5%;
+		width: 12%;
+		border-radius: 30% 20% 20% 100%;
+	}
+
+	.logo span:nth-child(6){
+		height: 12%;
+		width: 18%;
+		background: none;
+		border: none;
+		border-radius: 0 0 40% 50%;
+		box-shadow: 5px 12px 0 #ebbab9;
+		top: 10%;
+		left: -9%;
+		transform: rotate(0deg);
+	}
+	.logo span:nth-child(7){
+		height: 25%;
+		width: 8%;
+		top: 55%;
+		left: -2%;
+		border-radius: 0;
+	}
+	.logo span:nth-child(8){
+		left: -3%;
+		top: 10%;
+		height: 35%;
+		width: 33%;
+		border-radius: 100%;
+		background: none;
+		border: 8px solid #ebbab9;
+	}
+	.logo span:nth-child(9){
+		top: 65%;
+		left: -2%;
+		height: 7%;
+		width: 18%;
+		border-radius: 0;
+	}
+	.tummy{
+		height: 65%;
+		width: 55%;
+		background: #6c564e;
+		border-radius: 40% 40% 20% 20%;
+		border:2px solid #3a3a46;
+		top: 15%;
+	}
+	.arm span{
+		height: 15%;
+		width: 30%;
+		background: #6c564e;
+		border-radius: 10% 100% 100%;
+		border-top: 2px solid #3a3a46;
+		border-bottom: 2px solid #3a3a46;
+		border-right: 2px solid #3a3a46;
+		top: 20%;
+		transform: rotate(40deg);
+		box-shadow:
+		      inset 45px 0 0 #6c564e,
+		      inset 0 5px 0 #6c564e,
+		      inset 0 8px 0 #3a3a46,
+		      inset 0 14px 0 #6c564e,
+		      inset 0  17px #3a3a46,
+		      inset 0 23px 0 #6c564e,
+		      inset 0 26px 0 #3a3a46,
+		      inset 0 32px 0 #6c564e,
+		      inset 0 35px 0 #3a3a46,
+		      inset 0px 41px 0 #6c564e ;
+
+		      z-index: 4;
+	}
+	.arm span:nth-child(1){
+		left: -60%;
+		transform: rotate(-20deg);
+	}
+	.arm span:nth-child(2){
+		left: 60%;
+		transform: rotateY(180deg) rotate(-20deg);
+		z-index: 50;
+	}
+	.foot span{
+		height: 15%;
+		width: 45%;
+		background: #6c564e;
+		border-radius: 0% 100% 100%;
+		border-top: 2px solid #3a3a46;
+		border-bottom: 2px solid #3a3a46;
+		border-right: 2px solid #3a3a46;
+		bottom: -105%;
+		transform: rotate(40deg);
+		box-shadow:
+		      inset 30px 0 0 #6c564e,
+		      inset 0 6px 0 #6c564e,
+		      inset 0 9px 0 #3a3a46,
+		      inset 0 15px 0 #6c564e,
+		      inset 0  18px 0 #3a3a46,
+		      inset 0 24px 0 #6c564e,
+		      inset 0 27px 0 #3a3a46,
+		      inset 0 33px 0 #6c564e,
+		      inset 0 36px 0 #3a3a46;
+
+		      z-index: -1;
+	}
+	.foot span:nth-child(1){
+		left: -80%;
+		transform: rotateY(180deg) rotate(15deg);
+	}
+	.foot span:nth-child(2){
+		right: -80%;
+		transform: rotate(15deg);
+	}
+	.head{
+		height: 35%;
+		width: 35%;
+		background: #94766b;
+		top: -60%;
+		left: 0;
+		border-radius: 40% 40% 20% 20%;
+	}
+	.cheek span{
+		height: 50%;
+		width: 50%;
+		background: #f3b3a6;
+		top: 60%;
+		border-radius: 50%;
+	}
+	.cheek span:nth-child(1){
+		left: -80%;
+	}
+	.cheek span:nth-child(2){
+		right: -80%;
+	}
+	.nose{
+		height: 40%;
+		width: 40%;
+		background: #b49082;
+		top: 35%;
+		left: 0;
+		border-radius: 50%;
+		box-shadow: 0 3px #3a3a46;
+		z-index: 2;
+	}
+	.nose:after{
+		content: "";
+		height: 40%;
+		width: 45%;
+		background: #3a3a46;
+		border-radius: 100%;
+		top: -45%;
+	}
+	.teeth span{
+		height: 25%;
+		width: 10%;
+		background: #f7ede2;
+		top: 85%;
+		left: 0;
+		z-index: 1;
+		border-radius: 0 0 10% 10%;
+	}
+	.teeth span:nth-child(1){
+		left: -12%;
+	}
+	.teeth span:nth-child(2){
+		left: 12%;
+	}
+	.eye span{
+		height: 25%;
+		width: 15%;
+		background: #3a3a46;
+		top: -10%;
+		border-radius: 60% 60% 40% 40%;
+		box-shadow: inset 0 20px #f7ede2;
+	}
+	.eye span:nth-child(1){
+		left: -60%;
+	}
+	.eye span:nth-child(2){
+		left: 60%;
+	}
+	.ear span{
+		height: 15%;
+		width: 20%;
+		background: #3a3a46;
+		top: -75%;
+		border-radius: 60% 60% 20% 20%;
+		box-shadow: inset 0 5px #6c564e;
+		z-index: -1;
+		left: 0;
+	}
+	.ear  span:nth-child(1){
+		left: -90%;
+		transform: rotate(-45deg);
+	}
+	.ear span:nth-child(2){
+		right: -90%;
+		transform: rotateY(180deg) rotate(-45deg);
+	}
+</style>
+</head>
+<body>
+    	<div class="container">
+    		<div class="sign">
+    			Beavers For
+    			<div class="logo">
+    			     <span></span><span></span><span></span>
+    			     <span></span><span></span><span></span>
+    			     <span></span><span></span><span></span>
+    			</div>
+    		</div>
+    		<div class="tail"></div>
+    		<div class="tummy">
+    			<div class="arm">
+    				<span></span>
+    				<span></span>
+    			</div>
+    			<div class="foot">
+    				<span></span>
+    				<span></span>
+    			</div>
+    		</div>
+    		<div class="head">
+    			<div class="ear">
+    				<span></span>
+    				<span></span>
+    			</div>
+    			<div class="eye">
+    				<span></span>
+    				<span></span>
+    			</div>
+    			<div class="cheek">
+    				<span></span>
+    				<span></span>
+    			</div>
+    			<div class="nose"></div>
+    			<div class="teeth">
+    				<span></span>
+    				<span></span>
+    			</div>
+    		</div>
+    	</div>
+</body>
+</html>

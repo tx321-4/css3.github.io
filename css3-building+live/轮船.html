@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>轮船</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		border: 0;
+		box-sizing: border-box;
+		-webkit-font-smoothing: antialiased;
+	}
+	@-webkit-keyframes radar{
+		0%{
+			-webkit-transform: rotateY(0deg);
+				transform: rotateY(0deg);
+		}
+		100%{
+			-webkit-transform: rotateY(360deg);
+				transform: rotateY(360deg);
+		}
+	}
+	@keyframes radar{
+		0%{
+			-webkit-transform: rotateY(0deg);
+				transform: rotateY(0deg);
+		}
+		100%{
+			-webkit-transform: rotateY(360deg);
+				transform: rotateY(360deg);
+		}
+	}
+	@-webkit-keyframes barco{
+		0%{
+			-webkit-transform: rotate(-2deg) translateX(2px);
+			transform: rotate(-2deg) translateX(2px);
+		}
+		50%{
+			-webkit-transform: rotate(1deg) translateX(-10px);
+			transform: rotate(1deg) translateX(-10px);
+		}
+		100%{
+			-webkit-transform: rotate(-2deg) translateX(2px);
+			transform: rotate(-2deg) translateX(2px);
+		}
+	}
+	@keyframes barco{
+		0%{
+			-webkit-transform: rotate(-2deg) translateX(2px);
+			transform: rotate(-2deg) translateX(2px);
+		}
+		50%{
+			-webkit-transform: rotate(1deg) translateX(-10px);
+			transform: rotate(1deg) translateX(-10px);
+		}
+		100%{
+			-webkit-transform: rotate(-2deg) translateX(2px);
+			transform: rotate(-2deg) translateX(2px);
+		}
+	}
+	@-webkit-keyframes contenedores{
+		0%{
+			-webkit-transform: translateX(-7px);
+			transform: translateX(-7px);
+		}
+		50%{
+			-webkit-transform: translateX(1px);
+			transform: translateX(1px);
+		}
+		100%{
+			-webkit-transform: translateX(-7px);
+			transform: translateX(-7px);
+		}
+	}
+	@keyframes contenedores{
+		0%{
+			-webkit-transform: translateX(-7px);
+			transform: translateX(-7px);
+		}
+		50%{
+			-webkit-transform: translateX(1px);
+			transform: translateX(1px);
+		}
+		100%{
+			-webkit-transform: translateX(-7px);
+			transform: translateX(-7px);
+		}
+	}
+	@-webkit-keyframes ola{
+		0%{
+			right: 0%;
+		}
+		100%{
+			right: 100%;
+		}
+	}
+	@keyframes ola{
+		0%{
+			right: 0%;
+		}
+		100%{
+			right: 100%;
+		}
+	}
+	@-webkit-keyframes olita{
+		0%{
+			bottom: 0;
+		}
+		100%{
+			bottom: -29px;
+		}
+	}
+	@keyframes olita{
+		0%{
+			bottom: 0;
+		}
+		100%{
+			bottom: -29px;
+		}
+	}
+	.wrap{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		-ms-flex-pack: cetner;
+		justify-content: center;
+		width: 100%;
+		height: 100vh;
+	}
+	.barco{
+		width: 400px;
+		height: 160px;
+		position: relative;
+		overflow: hidden;
+		-webkit-animation-name: barco;
+		animation-name: barco;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-duration: 5s;
+		animation-duration: 5s;
+	}
+	.barco .puertita{
+		position: absolute;
+		bottom: 0px;
+		left: 7px;
+		width: 5px;
+		height: 10px;
+		background-color: #58575c;
+		border-radius: 5px;
+	}
+	.barco .base{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
+	.barco .base .proa, .barco .base .popa, .barco .base .tronco{
+		background: #58575c;
+	}
+	.barco .base .anclacont{
+		position: absolute;
+		right: 32px;
+		bottom: 36px;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background-color: rgba(0,0,0,0.2);
+	}
+	.barco .base .atras{
+		height: 58px;
+		width: 40px;
+		border-radius: 10px;
+		background-color: #58575c;
+		margin-left: 5px;
+		-webkit-transform: skewX(13deg);
+		transform: skewX(13deg);
+	}
+	.barco .base .popa{
+		height: 58px;
+		width: 95px;
+		-webkit-transform: skewX(37deg);
+		transform: skewX(37deg);
+		border-radius: 10px 18px 10px 18px;
+		position: absolute;
+		left: 30px;
+		top: 0;
+	}
+	.barco .base .tronco{
+		width: 347px;
+		height: 37px;
+		position: absolute;
+		left: 9px;
+		bottom: 0;
+		z-index: 10;
+	}
+	.barco .base .tronco .marca{
+		height: 14px;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0%;
+		-webkit-perspective-origin: 150px;
+	}
+	.barco .base .tronco .marca .per{
+		height: 100%;
+		background-color: rgba(255,0,0,0.4);
+		-webkit-transform: rotateX(7deg);
+		transform: rotateX(7deg);
+		border-radius: 0 0 3px 3px;
+	}
+	.barco .base .proa{
+		height: 58px;
+		width: 91px;
+		-webkit-transform: skewX(-47deg);
+		transform: skewX(-47deg);
+		border-radius: 14px 10px 10px 18px;
+		position: absolute;
+		right: 26px;
+		top: 0;
+	}
+	.barco .puente{
+		width: 118px;
+		height: 124px;
+		position: absolute;
+		left: 12px;
+		top:0;
+	}
+	.barco .puente .franja{
+		background-color: #58575c;
+		position: absolute;
+		bottom: 70px;
+		width: 35px;
+		height: 5px;
+		-webkit-transform: skewX(-5deg);
+		transform: skewX(-5deg);
+		left: 10px;
+	}
+	.barco .puente .camarotel{
+		position: absolute;
+		bottom: 0;
+		left: 5px;
+		width: 36px;
+		height: 70px;
+		-webkit-transform: skew(-5deg);
+		transform: skew(-5deg);
+		background-color: white;
+	}
+	.barco .puente .camarotel:after{
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: -2px;
+		background-color: #cccdd1;
+		height: 100%;
+		width: 3px;
+		z-index: -1;
+		-webkit-transform: skewX(3deg);
+		transform: skewX(3deg);
+	}
+	.barco .puente .camarotel .antiskew{
+		-webkit-transform: skewX(5deg);
+		transform: skewX(5deg);
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		padding: 7px 7px;
+		height: 45px;
+
+	}
+	.barco .puente .camarotel .ventana{
+		width: 5px;
+		height: 5px;
+		border-radius: 1px;
+		background-color: #003f5f;
+		margin: 2px;
+	}
+	.barco .puente .chimeneal, .barco .puente .chimenear{
+		background-color: white;
+	}
+	.barco .puente .chimeneal .linea, .barco .puente .chimenear .linea{
+		height: 10px;
+		width: 100%;
+		margin-top: 4px;
+		background-color: red;
+	}
+	.barco .puente .chimeneal{
+		width: 14px;
+		height: 43px;
+		position: absolute;
+		top: 9px;
+		left: 16px;
+		-webkit-transform: skewX(-6deg);
+		transform: skewX(-6deg);
+	}
+	.barco .puente .chimenear{
+		width: 20px;
+		height: 43px;
+		position: absolute;
+		top: 9px;
+		left: 19px;
+	}
+	.barco .fantena{
+		position: absolute;
+		width: 2px;
+		height: 40px;
+		left: 87px;
+		top: 2px;
+		background-color: #3a3939;
+		border-radius: 3px;
+	}
+	.barco .santenea{
+		position: absolute;
+		width: 2px;
+		height: 20px;
+		left: 83px;
+		top: 19px;
+		background-color: #3a3939;
+		border-radius: 3px;
+	}
+	.barco .radar{
+		position: absolute;
+		height: 20px;
+		left: 50px;top: 19px;
+	}
+	.barco .radar .cabeza{
+		width: 18px;
+		height: 7px;
+		background-color: white;
+		-webkit-animation-name: radar;
+		animation-name: radar;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+	}
+	.barco .radar .soporte{
+		width: 4px;
+		height: 20px;
+		background-color: white;
+		margin-left: 7px;
+		margin-top: -8px;
+		border-radius: 1px;
+	}
+	.barco .control{
+		width: 62px;
+		height: 57px;
+		background-color: white;
+		position: absolute;
+		right: 13px;
+		top: 36px;
+		padding-top: 15px;
+		padding-bottom: 10px;
+		padding-left: 5px;
+		padding-right: 5px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;		
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		border-bottom: 1px solid #cccdd1;
+	}
+	.barco .control .tapa{
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 2px;
+		background-color: white;
+		height: 13px;
+		-webkit-transform: skewX(-8deg);
+		transform: skewX(-8deg);
+		border-radius: 0 4px 0 0;
+		padding: 2px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		
+		-ms-flex-pack: distribute;
+		justify-content: space-around;	
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;		
+	}
+	.barco .control .tapa .top-ventana{
+		background-color: #003f5f;
+		height: 6px;
+		width: 28%;
+		-webkit-transform: skewX(5deg);
+		transform: skewX(5deg);
+	}
+	.barco .control .mid-ventana{
+		width: 5px;
+		height: 5px;
+		border-radius: 1px;
+		background-color: #003f5f;
+		display: block;
+		margin: 2px;
+	}
+	.barco .control .mid-ventana:nth-of-type(7){
+		margin-left: 10px;
+	}
+	.barco .control .puertita{
+		bottom: 2px;
+	}
+	.barco .bajo-camarotes{
+		background-color: white;
+		width: 69px;
+		height: 31px;
+		position: absolute;
+		bottom: 0;
+		right: 6px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;		
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		padding: 5px 5px 14px 41px;
+
+	}
+	.barco .bajo-camarotes:after{
+		content: '';
+		background-color: white;
+		position: absolute;
+		right: -2px;
+		top: 0;
+		width: 5px;
+		height: 100%;
+		-webkit-transform: rotate(-7deg);
+		transform: rotate(-7deg);
+	}
+	.barco .bajo-camarotes .ventanitas{
+		background-color: #003f5f;
+		width: 5px;
+		height: 3px;
+		border-radius: 2px;
+		margin: 1px;
+	}
+	.barco .bajo-camarotes .ventanitas:nth-of-type(4){
+		margin-left: 4px;
+	}
+	.barco .contenedores{
+		width: 158px;
+		height: 80px;
+		position: absolute;
+		top: 80px;
+		right: 102px;
+		-webkit-animation-name: contenedores;
+		animation-name: contenedores;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-duration: 5s;
+		animation-duration: 5s;
+	}
+	.barco .contenedores .contenedor{
+		width: 50px;
+		height: 16px;
+		background-color: #a4b8b9;
+		padding: 1px 2px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		float: left;
+		-ms-flex-pack:distribute;
+		justify-content: space-around;
+		margin-bottom: 1px;
+		margin-right: 1px;
+	}
+	.barco .contenedores .contenedor:nth-of-type(2){
+		background: #4f4a65;
+	}
+	.barco .contenedores .contenedor:nth-of-type(4){
+		background-color: #b36730;
+	}
+	.barco .contenedores .cal{
+		background: black;
+		height: 100%;
+		width: 2px;
+		border-radius: 1px;
+		opacity: 0.07;
+	}
+	.elmar{
+		width: 500px;
+		height: 500px;
+		border-radius: 50%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		position: relative;
+		overflow: hidden;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		background-color: #c0ebff;
+	}
+	.elmar .agua{
+		background-color: #25b9ee;
+		width: 100%;
+		height: 36%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+	}
+	.elmar .agua .olacont{
+		width: 200%;
+		top: -18px;
+		position: relative;
+		-webkit-animation-name: ola;
+		animation-name: ola;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-duration: 30s;
+		animation-duration: 30s;
+		-webkit-animation-timing-function: linear;
+		animation-timing-function: linear;
+	}
+	.olita{
+		fill: #25b9ee;
+		-webkit-animation-name: olita;
+		animation-name: olita;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		position: relative;
+	}
+</style>
+</head>
+<body>
+    	<section class="wrap">
+    		<div class="elmar">
+    			<div class="cielo"></div>
+    			<div class="barco">
+    				<div class="puente">
+    					<div class="chimeneal">
+    						<div class="linea"></div>
+    					</div>
+    					<div class="chimenear">
+    						<div class="linea"></div>
+    					</div>
+    					<div class="franja"></div>
+    					<div class="camarotel">
+    						<div class="antiskew">
+    							<div class="ventana"></div>
+    							<div class="ventana"></div>
+    							<div class="ventana"></div>
+    							<div class="ventana"></div>
+    							<div class="ventana"></div>
+    							<div class="puertita"></div>
+    						</div>
+    					</div>
+    					<div class="radar">
+    						<div class="cabeza"></div>
+    						<div class="soporte"></div>
+    					</div>
+    					<div class="fantena"></div>
+    					<div class="santenea"></div>
+    					<div class="control">
+    						<div class="tapa">
+    							<div class="top-ventana"></div>
+    							<div class="top-ventana"></div>
+    							<div class="top-ventana"></div>
+    						</div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="mid-ventana"></div>
+    						<div class="puertita"></div>
+    					</div>
+    					<div class="bajo-camarotes">
+    						<div class="ventanitas"></div>
+    						<div class="ventanitas"></div>
+    						<div class="ventanitas"></div>
+    						<div class="ventanitas"></div>
+    						<div class="ventanitas"></div>
+    						<div class="ventanitas"></div>
+    					</div>
+    				</div>
+    				<div class="base">
+    					<div class="atras"></div>
+    					<div class="popa"></div>
+    					<div class="tronco">
+    						<div class="marca">
+    							<div class="per"></div>
+    						</div>
+    					</div>
+    					<div class="proa"></div>
+    					<div class="anclacont"></div>
+    				</div>
+    				<div class="contenedores">
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    					<div class="contenedor">
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    						<div class="cal"></div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="agua">
+    				<svg version="1.1" class="olacont" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13685.8 298.5" style="enable-background:new 0 0 13685.8 298.5;" xml:space="preserve">
+				<path class="olita" d="M13641.6,241.3c-325.4-8.8-403.9-213.3-535-213.3c-85.9,0-159.3,27.7-292.7,127.3c-93.3,69.7-372.3,86-372.3,86
+				h-44.1c-325.4-8.8-403.9-213.3-535-213.3c-85.9,0-159.3,27.7-292.7,127.3c-93.3,69.7-372.3,86-372.3,86h-44.1
+				c-325.4-8.8-403.9-213.3-535-213.3c-85.9,0-159.3,27.7-292.7,127.3c-93.3,69.7-372.3,86-372.3,86h-44.1
+				c-325.4-8.8-661.3-147-827.7-86c-109.4,40.1-372.3,86-372.3,86H8665C8339.6,232.6,8261.1,28,8130,28c-85.9,0-159.3,27.7-292.7,127.3
+				c-93.3,69.7-372.3,86-372.3,86h-44.2c-301.4-8.1-708.8-174.7-827.7-86c-78.8,58.8-289.7,79.6-353.6,84.7c-0.6,0-1.2,0.1-1.7,0.1
+				c-1.1,0.1-2.2,0.2-3.2,0.2c-1.5,0.1-3,0.2-4.3,0.3c-0.9,0.1-1.7,0.1-2.4,0.2c-4.5,0.3-7,0.5-7,0.5h-44.1
+				C5851.3,232.6,5772.8,8,5641.7,8c-85.9,0-159.3,47.7-292.7,147.3c-93.3,69.7-372.3,86-372.3,86h-44.1
+				c-325.4-8.8-694.3-185.6-827.7-86c-93.3,69.7-372.3,86-372.3,86h-44.1C3363,232.6,3284.4,28,3153.4,28
+				c-85.9,0-159.3,27.7-292.7,127.3c-93.3,69.7-372.3,86-372.3,86h-44.1c-325.4-8.8-403.9-179.3-535-179.3
+				c-85.9,0-159.3-6.3-292.7,93.3c-93.3,69.7-372.3,86-372.3,86H1200C874.7,232.6,796.1,28,665,28c-85.9,0-159.3,27.7-292.7,127.3
+				C278.9,225,0,241.3,0,241.3v57.2h0h1244.2h0h1244.2h0h1244.2h0h1244.2h0h1244.2h0H7465h0h1244.2l0,0h1244.2l0,0h1244.2l0,0h1244.2
+				l0,0h1244.2v-57.2H13641.6z"/>
+			</svg>
+    			</div>
+    		</div>
+    	</section>
+</body>
+</html>

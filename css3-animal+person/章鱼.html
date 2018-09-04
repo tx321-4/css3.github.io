@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		max-width: 100vw;
+		max-height: 100vh;
+		overflow: hidden;
+	}
+	h1{
+		font-family: sans-serif;
+		position: absolute;
+		top: 10px;
+		font-size: 16px;
+		text-align: center;
+	}
+	.wrapper{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: #8fd2fe;
+		min-height: 350px;
+	}
+	@-webkit-keyframes anim-tail{
+		0%{
+			top: -25px;
+		}
+		20%{
+			top: -20px;
+		}
+		40%{
+			-webkit-transform: translateX(-50%) rotate(-10deg);
+			transform: translateX(-50%) rotate(-10deg);
+		}
+		60%{
+			-webkit-transform: translateX(50%) rotate(-50deg);
+			transform: translateX(50%) rotate(-50deg);
+		}
+		100%{
+			top: -25px;
+		}
+	}
+
+	@keyframes anim-tail{
+		0%{
+			top: -25px;
+		}
+		20%{
+			top: -20px;
+		}
+		40%{
+			-webkit-transform: translateX(-50%) rotate(-10deg);
+			transform: translateX(-50%) rotate(-10deg);
+		}
+		60%{
+			-webkit-transform: translateX(50%) rotate(-50deg);
+			transform: translateX(50%) rotate(-50deg);
+		}
+		100%{
+			top: -25px;
+		}
+	}
+	@-webkit-keyframes anim-leg-center{
+		0%{
+			bottom: -90px;
+		}
+		50%{
+			bottom: -100px;
+		}
+		100%{
+			bottom: -90px;
+		}
+	}
+	@keyframes anim-leg-center{
+		0%{
+			bottom: -90px;
+		}
+		50%{
+			bottom: -100px;
+		}
+		100%{
+			bottom: -90px;
+		}
+	}
+	@-webkit-keyframes anim-leg-left{
+		0%{
+			left: -30px;
+			-webkit-transform: rotate(35deg);
+			transform: rotate(35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		50%{
+			left: -20px;
+			-webkit-transform: rotate(60deg);
+			transform: rotate(60deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		100%{
+			left: -30px;
+			-webkit-transform: rotate(35deg);
+			transform: rotate(35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+	}
+	@keyframes anim-leg-left{
+		0%{
+			left: -30px;
+			-webkit-transform: rotate(35deg);
+			transform: rotate(35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		50%{
+			left: -20px;
+			-webkit-transform: rotate(60deg);
+			transform: rotate(60deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		100%{
+			left: -30px;
+			-webkit-transform: rotate(35deg);
+			transform: rotate(35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+	}
+	@-webkit-keyframes anim-leg-right{
+		0%{
+			left: 50%;
+			-webkit-transform: rotate(-35deg);
+			transform: rotate(-35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		50%{
+			left: 50%;
+			-webkit-transform: rotate(-60deg);
+			transform: rotate(-60deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		100%{
+			left: 50%;
+			-webkit-transform: rotate(-35deg);
+			transform: rotate(-35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+
+	}
+	@keyframes anim-leg-right{
+		0%{
+			left: 50%;
+			-webkit-transform: rotate(-35deg);
+			transform: rotate(-35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		50%{
+			left: 50%;
+			-webkit-transform: rotate(-60deg);
+			transform: rotate(-60deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+		100%{
+			left: 50%;
+			-webkit-transform: rotate(-35deg);
+			transform: rotate(-35deg);
+			-webkit-transform-origin: top;
+			transform-origin: top;
+		}
+
+	}
+	@-webkit-keyframes anim-eye-left{
+		0%{
+			left: 30px;
+		}
+		50%{
+			left: 60px;
+		}
+		100%{
+			left: 30px;
+		}
+	}
+	@keyframes anim-eye-left{
+		0%{
+			left: 30px;
+		}
+		50%{
+			left: 60px;
+		}
+		100%{
+			left: 30px;
+		}
+	}
+	@-webkit-keyframes anim-float{
+		0%{
+			top: 0;
+		}
+		50%{
+			top: 20px;
+		}
+		100%{
+			top: 0;
+		}
+
+	}
+	@keyframes anim-float{
+		0%{
+			top: 0;
+		}
+		50%{
+			top: 20px;
+		}
+		100%{
+			top: 0;
+		}
+		
+	}
+	@-webkit-keyframes anim-wave{
+		0%{
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		100%{
+			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+	@keyframes anim-wave{
+		0%{
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		100%{
+			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+	.squid{
+		position: relative;
+		-webkit-animation: anim-float 2s infinite;
+		animation: anim-float 2s infinite;
+	}
+	.squid-tail{
+		width: 25px;
+		height: 45px;
+		border-radius: 25px;
+		background: #8fd2fe;
+		position: absolute;
+		left: 50%;
+		-webkit-transform: translateX(-50%) rotate(-30deg);
+		transform: translateX(-50%) rotate(-30deg);
+		top: -25px;
+		box-shadow: #fd3265 -6px -5px 0 3px;
+		-webkit-animation: anim-tail 2s infinite;
+		animation: anim-tail 2s infinite;
+	}
+	.squid-tail::after{
+		content: '';
+		width: 14px;
+		height: 14px;
+		border-radius: 7px;
+		position: absolute;
+		background: #fd3265;
+		top: -1px;
+		left: 8px;
+	}
+	.squid-head{
+		width: 200px;
+		height: 200px;
+		background-image: -webkit-linear-gradient(#f8268f,#fd3265);
+		background-image: linear-gradient(#f8268f,#fd3265);
+		border-radius: 100px;
+		position: relative;
+	}
+	.squid-eyes{
+		width: 40px;
+		height: 40px;
+		border-radius: 30px;
+		background: #000;
+		position: absolute;
+		top: 80px;
+		left: 40px;
+		box-shadow: #fff 0 0 0  10px, rgba(0,0,0,0.2) -20px  30px 0 -5px, #000 80px 0 0 0px, #fff 80px 0 0 10px, rgba(0,0,0,0.2) 90px 30px 0  -5px, rgba(255,255,255,0.3) -10px -60px 0 -15px, rgba(255,255,255,0.3) 10px -70px  0 -10px;
+		-webkit-animation: anim-eye-left 2s infinite;
+		animation: anim-eye-left 2s infinite;
+	}
+	.squid-mouth{
+		position: absolute;
+		bottom: 20px;width: 30px;
+		height: 15px;
+
+		background: #f8268f;
+		border-radius: 100%;
+		left:50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+		bottom: 50px;
+		box-shadow: #000 0 7px 0 5px;
+	}
+	.squid-legs{
+		width: 50px;
+		height: 120px;
+		border-radius: 25px;
+		background: #fd3265;
+		position: absolute;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+		bottom: -90px;
+		-webkit-animation: anim-leg-center 2s infinite;
+		animation: anim-leg-center 2s infinite;
+	}
+	.squid-legs::after, .squid-legs::before{
+		content: '';
+		width: 50px;
+		height: 110px;
+		border-radius: 25px;
+		background: #fd3265;
+		position: absolute;
+		left: 30px;
+		-webkit-transform: rotate(-35deg);
+		transform: rotate(-35deg);
+		-webkit-animation: anim-leg-right 2s infinite;
+		animation: anim-leg-right 2s infinite;
+
+	}
+	.squid-legs::before{
+		left: -30px;
+		-webkit-transform: rotate(35deg);
+		transform: rotate(35deg);
+		-webkit-animation: anim-leg-left 2s infinite;
+		animation: anim-leg-left 2s infinite;
+	}
+	.wave, .wave-2{
+		position: absolute;
+		height: 3000px;
+		width: 3000px;
+		bottom: -2900px;
+		background: #28a9ff;
+		opacity: .5;
+		border-radius: 40%;
+		-webkit-animation: anim-wave 10s infinite;
+		animation: anim-wave 10s infinite;
+		z-index: 2;
+	}
+	.wave-2{
+		background: #007dd1;
+		opacity: .2;
+		height: 3050px;
+		width: 3500px;
+		bottom: -3200px;
+	}
+	@-webkit-keyframes anim-bubble{
+		to{
+			opacity: 1;
+			box-shadow: #fff -50px -200px 0 2px , #fff 50px -300px 0 7px, #fff 160px -400px 0 5px, #fff 100px -500px 0 3px;
+		}
+	}
+	@keyframes anim-bubble{
+		to{
+			opacity: 1;
+			box-shadow: #fff -50px -200px 0 2px , #fff 50px -300px 0 7px, #fff 160px -400px 0 5px, #fff 100px -500px 0 3px;
+		}
+	}
+	.bubbles{
+		width: 5px;
+		height: 5px;
+		border-radius: 2.5px;
+		background: #fff;
+		opacity: 0;
+		-webkit-animation: anim-bubble 3s infinite linear;
+		animation: anim-bubble 3s infinite linear;
+		box-shadow: #fff -50px -50px 0 2px, #fff 50px -110px 0 7px, #fff 160px -70px 0 5px, #fff 100px -80px 0 5px;
+	}
+</style>
+</head>
+<body>
+    <div class="wrapper">
+    	<h1>Please view in Full Screen</h1>
+    	<div class="wave"></div>
+    	<div class="wave-2"></div>
+    	<div class="bubbles">
+    		
+    	</div>
+    	<div class="squid">
+    		<div class="squid-tail"></div>
+    		<div class="squid-head">
+    			<div class="squid-eyes"></div>
+    			<div class="squid-mouth"></div>
+    			<div class="squid-legs"></div>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

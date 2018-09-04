@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>水壶</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		background: #f8f7ff;
+	}
+	.teapot-icon{
+		margin: 70px auto 0px;
+		width: 190px;
+		height:160px;
+		position: relative;
+	}
+	.teapot-body-wrap{
+		width: 164px;
+		height: 123px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+
+	}
+	.teapot-body{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background-color: #bf0010;
+		border-top-left-radius: 50% 105px;
+		border-top-right-radius: 50% 105px;
+		overflow: hidden;
+	}
+	.teapot-body:before{
+		content: '';
+		display: block;
+		background-color: #a6000e;
+		width: 82px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-top-right-radius: 50% 105px;
+	}
+	.teapot-body .teapot-body-inner-1{
+		background-color: #d7000f;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 130px;
+		height: 100%;
+		margin: auto;
+		border-top-left-radius: 50% 105px;
+		z-index: 5;
+	}
+	.teapot-body .teapot-body-inner-1:before{
+		content: '';
+		display: block;
+		background-color: #c8000e;
+		width: 65px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-top-right-radius: 50% 105px;
+	}
+	.teapot-body .teapot-body-inner-1 .bleak{
+		background-color: #f54b4f;
+		border-radius: 50%;
+	}
+	.teapot-body .teapot-body-inner-1 .bleak-1{
+		width: 7px;
+		height: 12px;
+		position: absolute;
+		top: calc(50% - 20px);
+		left: 13px;
+		-webkit-transform: rotate(16deg);
+		transform: rotate(16deg);
+	}
+	.teapot-body .teapot-body-inner-1 .bleak-1 .bleak-2{
+		width: 4px;
+		height: 4px;
+		position: absolute;
+		top: calc(50% - 30px);
+		left: 20px;
+	}
+	.teapot-body .teapot-body-inner-2{
+		background-color: #bf0010;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 92px;
+		height: 100%;
+		margin: auto;
+		border-top-left-radius: 50% 105px;
+		border-top-right-radius: 50% 105px;
+		z-index: 8;
+	}
+	.teapot-body .teapot-body-inner-2:before{
+		content: '';
+		display: block;
+		background-color: #a6000e;
+		width: 43px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-top-right-radius: 50% 105px;
+	}
+	.teapot-top{
+		width: 74px;
+		height: 12px;
+		background-color: #634b5b;
+		position: absolute;
+		top: -2px;
+		left: 0;
+		right: 0;
+		margin: auto;
+		z-index: 15;
+		border-radius: 20px 20px 3px 3px;
+	}
+	.teapot-top:before{
+		content: '';
+		display: block;
+		width: 35px;
+		height: 100%;
+		position: absolute;
+		top: 0px;
+		right: -1px;
+		background-color: #54404e;
+		border-radius: 0px 20px 3px 3px;
+	}
+	.teapot-top:after{
+		content: '';
+		display: block;
+		width: 16px;
+		height: 12px;
+		background-color: #54404e;
+		position: absolute;
+		top: -11px;
+		left: 0;
+		right: 0;
+		margin: auto;
+		border-radius: 50% 50% 0 0;
+	}
+	.teapot-nose{
+		position: absolute;
+		top: 52px;
+		right: 8px;
+		background-color: #858084;
+		width: 60px;
+		height: 27px;
+		-webkit-transform: rotate(-40deg);
+		transform: rotate(-40deg);
+		z-index: -1;
+		border-top-right-radius: 50% 50px;
+		border-bottom-right-radius: 50% 50px;
+		overflow: hidden;
+	}
+	.teapot-nose:before{
+		content: '';
+		width: 100%;
+		height: 45%;
+		display: block;
+		background-color: #6b676a;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+
+	}
+	.teapot-nose:after{
+		content: '';
+		display: block;
+		width: 12px;
+		height: 100%;
+		background: #634b5b;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.teapot-handle{
+		width: 106px;
+		height: 80px;
+		position: absolute;
+		top: 0;
+		right: 29px;
+	}
+	.teapot-handle:before{
+		content: '';
+		display: block;
+		background-color: #411917;
+		height: 100%;
+		width: 15px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		-webkit-transform-origin: center top;
+		transform-origin: center top;
+		-webkit-transform: rotate(26deg);
+		transform: rotate(26deg);
+		border-radius: 7px;
+	}
+	.teapot-handle:after{
+		content: '';
+		display: block;
+		background-color: #411917;
+		height: 15px;
+		width: 100%;
+		position: absolute;
+		top: -3px;
+		left: -3px;
+		border-radius: 7px;
+	}
+	.teapot-bubble{
+		background-color: #d3cfff;
+		width: 40px;
+		height: 40px;
+		border: 2px solid #1f1f1f;
+		border-radius: 50%;
+		position: absolute;
+		top: 16px;
+		right: -28px;
+		-webkit-transform: scale(0.3);
+		transform: scale(0.3);
+		-webkit-animation:bubble 2s linear 0s infinite;
+		animation: bubble 2s linear 0s infinite;
+	}
+	.teapot-bubble:before{
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: inherit;
+		position: absolute;
+		top: 13px;
+		left: -11px;
+		border-radius: 50%;
+		border: 2px solid #1f1f1f;
+		border-right: none;
+		border-top: none;
+	}
+	.teapot-bubble:after{
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: inherit;
+		position: absolute;
+		top: -9px;
+		left: -20px;
+		border-radius: 50%;
+		border: 2px solid #1f1f1f;
+		border-bottom: none;
+		border-right: none;
+	}
+	@-webkit-keyframes bubble{
+		0%{
+			-webkit-transform: scale(0.3);
+			transform: scale(0.3);
+			position: absolute;
+			top: 16px;
+			right: -28px;
+		}
+		25%{
+			-webkit-transform: scale(0.5);
+			transform: scale(0.5);
+			position: absolute;
+			top: 6px;
+			right: -45px;
+		}
+		50%{
+			-webkit-transform: scale(0.8);
+			transform: scale(0.8);
+			position: absolute;
+			top: 0;
+			right: -65px;
+		}
+		100%{
+			-webkit-transform: scale(0.8);
+			transform: scale(0.8);
+			position: absolute;
+			top: 0;
+			right: -65px;
+		}
+
+	}
+	@keyframes bubble{
+		0%{
+			-webkit-transform: scale(0.3);
+			transform: scale(0.3);
+			position: absolute;
+			top: 16px;
+			right: -28px;
+		}
+		25%{
+			-webkit-transform: scale(0.5);
+			transform: scale(0.5);
+			position: absolute;
+			top: 6px;
+			right: -45px;
+		}
+		50%{
+			-webkit-transform: scale(0.8);
+			transform: scale(0.8);
+			position: absolute;
+			top: 0;
+			right: -65px;
+		}
+		100%{
+			-webkit-transform: scale(0.8);
+			transform: scale(0.8);
+			position: absolute;
+			top: 0;
+			right: -65px;
+		}
+
+	}
+</style>
+</head>
+<body>
+    <div class="teapot-icon">
+    	<div class="teapot-body-wrap">
+    		<div class="teapot-body">
+    			<div class="teapot-body-inner-1">
+    				<div class="bleak bleak-1"></div>
+    				<div class="bleak bleak-2"></div>
+    			</div>
+    			<div class="teapot-body-inner-2"></div>
+    			<div class="teapot-body-inner-3"></div>
+    		</div>
+    		<div class="teapot-top"></div>
+    	</div>
+    	<div class="teapot-nose"></div>
+    	<div class="teapot-handle"></div>
+    	<div class="teapot-bubble"></div>
+    </div>
+
+</body>
+</html>

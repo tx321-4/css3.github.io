@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>手机展现效果</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		background: black;
+
+	}
+	.container{
+		position: relative;
+		width: 800px;
+		height: 600px;
+		background: #eaeaea;
+		margin: 90px auto;
+	}
+	.celu{
+		position: absolute;
+		margin: -70px 21px;
+	}
+	.base{
+		position: absolute;
+		width: 172px;
+		height: 231px;
+		background: #ddd;
+		border-radius: 33px;
+		-webkit-transform: skew(-20deg) rotate(12deg);
+		transform: skew(-20deg) rotate(12deg);
+		margin: 251px 300px;
+		box-shadow: 12px 12px 3px 0px #ccc;
+	}
+	.base::before{
+		content: "";
+		position: absolute;
+		width: 167px;
+		height: 162px;
+		background: #333;
+		margin: 30px 3px;
+	}
+	.base::after{
+		content: "";
+		position: absolute;
+		width: 162px;
+		height: 165px;
+		background: black;
+		opacity: .5;
+		margin: 25px 3px;
+	}
+	.circ{
+		position: absolute;
+		width: 21px;
+		height: 12px;
+		border-radius: 100%;
+		background: #999;
+		margin: 212px 80px;
+	}
+	.base3{
+		position: absolute;
+		width: 167px;
+		height: 121px;
+		background: #ccc;
+		margin: 281px 300px;
+		border-top: 50px solid #077593;
+		border-bottom: 7px solid #077593;
+		-webkit-transform: skew(-20deg) rotate(12deg);
+		transform: skew(-20deg) rotate(12deg);
+		-webkit-transition: all 1.2s ease-in-out;
+		transition: all 1.2s ease-in-out;
+		-webkit-animation: sube 7s alternate infinite;
+		animation: sube 7s alternate infinite;
+	}
+	.base3::before{
+		content: "";
+		position: absolute;
+		width: 155px;
+		height: 172px;
+		background: black;
+		opacity: .5;
+		margin: -55px 3px;
+	}
+	ul.lines{
+		position: absolute;
+		width: 121px;
+		height: 121px;
+		list-style: none;
+		margin: 3px 0px;
+	}
+	ul.lines li{
+		display: block;
+		width: 132px;
+		height: 5px;
+		background: #333;
+		margin: 7px -21px;
+	}
+	.base7{
+		position: absolute;
+		width: 167px;
+		height: 125px;
+		background: #ccc;
+		margin: 277px 302px;
+		border-top: 50px solid #DD5D83;
+		border-bottom: 7px solid #DD5D83;
+		-webkit-transform: skew(-20deg) rotate(12deg);
+		transform: skew(-20deg) rotate(12deg);
+		-webkit-transition: all 1.2s ease-in-out;
+		transition: all 1.2s ease-in-out;
+		-webkit-animation: sube3 7s alternate infinite;
+		animation: sube3 7s alternate infinite;
+
+	}
+	.video{
+		position: absolute;
+		width: 121px;
+		height: 70px;
+		background: #333;
+		margin: 12px 23px;
+
+	}
+	.circ3{
+		position: absolute;
+		width: 40px;
+		height: 30px;
+		border-radius: 100%;
+		background: #090909;
+		margin: 18px 40px;
+	}
+	.circ3::before{
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 7px solid transparent;
+		border-left: 12px solid #eaeaea;
+		border-bottom: 7px solid transparent;
+		margin: 7px 16px;
+	}
+	.line{
+		position: absolute;
+		width: 121px;
+		height: 5px;
+		border-radius: 3px;
+		background: white;
+		margin: 63px 0;
+	}
+	.circ5{
+		position: absolute;
+		width: 12px;
+		height: 9px;
+		border-radius: 100%;
+		background: #ccc;
+		margin: -3px 3px;
+	}
+	.l1,.l2{
+		position: absolute;
+		width: 55px;
+		height: 5px;
+		background: gray;
+	}
+	.l1{margin: 90px 21px;}
+	.l2{margin:102px 21px;}
+	.l3{
+		position: absolute;
+		width: 55px;
+		height: 21px;
+		background: #F96D93;
+		margin: 90px;
+	}
+	@-webkit-keyframes sube{
+		0%,30%,40%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+		50%,60%,70%{
+			-webkit-transform: translateX(-7px) translateY(-25px) skew(-20deg) rotate(12deg);
+			transform: translateX(-7px) translateY(-25px) skew(-20deg) rotate(12deg);
+		}
+		80%,90%,100%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+	}
+	@keyframes sube{
+		0%,30%,40%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+		50%,60%,70%{
+			-webkit-transform: translateX(-7px) translateY(-25px) skew(-20deg) rotate(12deg);
+			transform: translateX(-7px) translateY(-25px) skew(-20deg) rotate(12deg);
+		}
+		80%,90%,100%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+	}
+	@-webkit-keyframes sube3{
+		0%,30%,40%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+		50%,60%,70%{
+			-webkit-transform: translateX(-19px) translateY(-46px) skew(-20deg) rotate(12deg);
+			transform: translateX(-19px) translateY(-46px) skew(-20deg) rotate(12deg);
+		}
+		80%,90%,100%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+	}
+	@keyframes sube3{
+		0%,30%,40%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+		50%,60%,70%{
+			-webkit-transform: translateX(-19px) translateY(-46px) skew(-20deg) rotate(12deg);
+			transform: translateX(-19px) translateY(-46px) skew(-20deg) rotate(12deg);
+		}
+		80%,90%,100%{
+			-webkit-transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+			transform: translateX(0px) translateY(0px) skew(-20deg) rotate(12deg);
+		}
+	}
+</style>
+</head>
+<body>
+    <div class="container">
+    	<div class="celu">
+    		<div class="base">
+    			<div class="circ"></div>
+    		</div>
+    		<div class="base3">
+    			<ul class="lines">
+    				<li></li>
+    				<li></li>
+    				<li></li>
+    				<li></li>
+    				<li></li>
+    				<li></li>
+    				<li></li>
+    				<li></li>
+    				<li></li>
+    			</ul>
+    		</div>
+    		<div class="base7">
+    			<div class="video">
+    				<div class="circ3"></div>
+    				<div class="line">
+    					<div class="circ5"></div>
+    				</div>
+    			</div>
+    				<div class="cuadrados">
+    					<span class="l1"></span>
+    					<span class="l2"></span>
+    					<span class="l3"></span>
+    				</div>
+    		</div>    		
+    	</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>小企鹅</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		background-color: #b2ebf2;
+	}
+
+	.penguin_container{
+		margin: 0 auto;
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 333px;
+		top: 15%;
+	}
+	.body{
+		width: 298px;
+		height: 333px;
+		border-top-left-radius: 45%;
+		border-top-right-radius: 45%;
+		border-bottom-left-radius: 35%;
+		border-bottom-right-radius: 35%;
+		background-color: #465a65;
+		position: absolute;
+	}
+	.belly{
+		width: 240px;
+		background-color: #deddd0;
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		height: 150px;
+		margin: 0 auto;
+		margin-top: 150px;
+		overflow: hidden;
+	}
+	.belly::before{
+		content: '';
+		width: 240px;
+		background-color: #f6f5e4;
+		border-bottom-left-radius: 55%;
+		border-bottom-right-radius: 43%;
+		height: 135px;
+		display: block;
+		position: absolute;
+	}
+	.face_white span{
+		height: 100px;
+		background-color: #f6f5e4;
+		width: 121px;
+		position: absolute;
+		top: 55px;
+	}
+
+	.face_white span:nth-child(1){
+		left: 29px;
+		border-top-left-radius: 100%;
+		border-top-right-radius: 50%;
+
+	}
+
+	.face_white span:nth-child(2){
+		right: 29px;
+		border-top-right-radius: 100%;
+		border-top-left-radius: 50%;
+	}
+
+	.eyes span{
+		width: 40px;
+		height: 40px;
+		background-color: #263238;
+		border-radius: 50%;
+		position: absolute;
+		top: 100px;
+	}
+
+	.eyes span:nth-child(1){
+		left: 70px;
+	}
+
+	.eyes span:nth-child(2){
+		right: 70px;
+	}
+
+	.eyes span::after{
+		content: '';
+		position: absolute;
+		background-color: #fff;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		top: 8px;
+		left: 9px;
+	}
+
+	.beak span:nth-child(1){
+		width: 35px;
+		height: 35px;
+		background-color: #f5b81f;
+		position: absolute;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+		left: 130px;
+		top: 130px;
+		z-index: 9;
+		border-radius: 15%;
+	}
+
+	.beak span:nth-child(2){
+		width: 50px;
+		height: 10px;
+		border-bottom: 5px solid #262626;
+		position: absolute;
+		top: 138px;
+		left: 123px;
+		z-index: 999;
+		border-radius: 50%;
+	}
+
+	.cheeks span{
+		width: 30px;
+		height: 15px;
+		border-radius: 50%;
+		background-color: pink;
+		position: absolute;
+		top: 145px;
+		z-index: 99;
+	}
+
+	.cheeks span:nth-child(1){
+		left: 54px;
+	}
+	.cheeks span:nth-child(2){
+		right: 54px;
+	}
+
+	.feet span{
+		width: 40px;
+		height: 90px;
+		position: absolute;
+		background-color: #f5b81f;
+		border-radius: 50%;
+		bottom:-42px;
+		z-index: -1;
+	}
+
+	.feet span:nth-child(1){
+		-webkit-transform: rotate(77deg);
+		-ms-transform: rotate(77deg);
+		transform: rotate(77deg);
+		left:60px;
+	}
+
+	.feet span:nth-child(2){
+		-webkit-transform: rotate(-77deg);
+		-ms-transform: rotate(-77deg);
+		transform: rotate(-77deg);
+		right:60px;
+	}
+
+	.wings span{
+		width: 35px;
+		height: 90px;
+		position: absolute;
+		background-color: #334852;
+		border-radius: 50%;
+		top:136px;
+		z-index: -1;
+
+	}
+
+	.wings span:nth-child(1){
+		left: -30px;
+		-webkit-transform: rotate(140deg);
+		-ms-transform: rotate(140deg);
+		transform: rotate(140deg);
+		border-bottom-left-radius: 100%;
+	}
+
+	.wings span:nth-child(2){
+		right: -30px;
+		-webkit-transform: rotate(-140deg);
+		-ms-transform: rotate(-140deg);
+		transform: rotate(-140deg);
+		border-bottom-right-radius: 100%;
+	}
+</style>
+</head>
+<body>
+    <div class="penguin_container">
+    	<div class="body">
+    		<div class="wings">
+    			<span></span>
+    			<span></span>
+    		</div>
+
+    		<div class="face_container">
+    			<div class="face_white">
+    				<span></span>
+    				<span></span>
+    			</div>
+
+    			<div class="eyes">
+    				<span></span>
+    				<span></span>
+    			</div>
+
+    			<div class="beak">
+    				<span></span>
+    				<span></span>
+    			</div>
+
+    			<div class="cheeks">
+    				<span></span>
+    				<span></span>
+    			</div>
+    		</div>
+
+    		<div class="belly"></div>
+
+    		<div class="feet">
+    			<span></span>
+    			<span></span>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

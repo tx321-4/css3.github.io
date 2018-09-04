@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>松鼠爷爷</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		background: brown;
+	}
+	.box{
+		position: relative;
+		margin: auto;
+		display: block;
+		margin-top: 0%;
+		width: 500px;
+		height: 500px;
+		background: none;
+	}
+	.base-circle{
+		position: absolute;
+		top: 12.5%;
+		left: 12.5%;
+		width: 75%;
+		height: 75%;
+		background: #DDCA66;
+		border-radius: 50%;
+	}
+	.left-ear{
+		position: absolute;
+		width: 40%;
+		height: 40%;
+		left: 10%;
+		top: 20%;
+		background: none;
+	}
+	.left-ear-base{
+		border-radius: 50%;
+		position: absolute;
+		width: 50%;
+		height: 50%;
+		left: 0%;
+		top: 0%;
+		background: #D0782A;
+	}
+	.left-ear-bottom{
+		border-radius: 50%;
+		position: absolute;
+		width: 30%;
+		height: 30%;
+		left: 0%;
+		top: 30%;
+		background: #D0782A;
+	}
+	.tunnel{
+		border-radius: 50%;
+		position: absolute;
+		width: 60%;
+		height: 60%;
+		left:12%;
+		top: 17%;
+		background: #DDCA66;
+		border-style: solid;
+	}
+	 .right-ear{
+	 	border-radius: 50%;
+	 	position: absolute;
+	 	width: 20%;
+	 	height: 20%;
+	 	right: 10%;
+	 	top: 20%;
+	 	background:#D0782A;
+	 }
+	 .face-vertical{
+	 	border-radius: 50%;
+	 	position: absolute;
+	 	width: 60%;
+	 	height: 80%;
+	 	left: 20%;
+	 	top: 10%;
+	 	background: #D0782A;
+	 }
+	 .face-bottom{
+	 	border-radius: 50%;
+	 	position: absolute;
+	 	width: 80%;
+	 	height: 50%;
+	 	left: 10%;
+	 	bottom: 10%;
+	 	background: #D0782A;
+	 }
+	 .left-triangles{
+	 	position: absolute;
+	 	width: 20%;
+	 	height: 30%;
+	 	left: -11%;
+	 	top: 35%;
+	 	background: #D0782A;
+	 	-webkit-clip-path: polygon(100% 0,0 25%,50% 50%,20% 65%,100% 100%);
+	 	clip-path: polygon(100% 0,0 25%,50% 50%,20% 65%,100% 100%);
+	 }
+	 .right-triangles{
+	 	position: absolute;
+	 	width: 20%;
+	 	height: 30%;
+	 	right: -11%;
+	 	top: 35%;
+	 	background: #D0782A;
+	 	-webkit-clip-path: polygon(0 0,100% 25%,50% 50%,81% 65%,0 100%);
+	 	clip-path: polygon(0 0,100% 25%,50% 50%,81% 65%,0 100%);
+
+	 }
+	 .shapka-rectangle{
+	 	position: absolute;
+	 	width: 44%;
+	 	height: 10%;
+	 	left: 28%;
+	 	top: 10%;
+	 	background: brown;
+	 	border-radius: 10%;
+	 }
+	 .shapka-hemisphere{
+	 	position: absolute;
+	 	width: 35%;
+	 	height: 25%;
+	 	left: 32.5%;
+	 	top: 2%;
+	 	background: brown;
+	 	border-radius: 50%;
+	 	-webkit-clip-path: polygon(0 0,100% 0,100% 50%,0 50%);
+	 	clip-path: polygon(0 0,100% 0,100% 50%,0 50%);
+	 }
+	 .left-g{
+	 	position: absolute;
+	 	width: 21%;
+	 	height: 21%;
+	 	left: 23%;
+	 	top: 27%;
+	 	background: none;
+	 	border-radius: 10%;
+	 	border-style: solid;
+	 	border-width: 8px;
+	 	z-index: 2;
+	 }
+	 .right-g{
+	 	position: absolute;
+	 	width: 21%;
+	 	height: 21%;
+	 	right: 23%;
+	 	top: 27%;
+	 	background: none;
+	 	border-radius: 10%;
+	 	border-style: solid;
+	 	border-width: 8px;
+	 	z-index: 2;
+	 }
+	 .middle-bar{
+	 	position: absolute;
+	 	width: 2.5%;
+	 	height: 2%;
+	 	left: 47.5%;
+	 	top: 32%;
+	 	background: black;
+	 	border-style: solid;
+	 	border-width: 5px;
+	 }
+	 .left-eye{
+	 	position: absolute;
+	 	background: #FFFFFF;
+	 	width: 15%;
+	 	height: 15%;
+	 	top: 32.5%;
+	 	left: 30%;
+	 	border-radius: 50%;
+	 }
+	 .right-eye{
+	 	position: absolute;
+	 	background: #FFFFFF;
+	 	width: 15%;
+	 	height: 15%;
+	 	top: 32.5%;
+	 	right: 30%;
+	 	border-radius: 50%;
+	 }
+	 .pupil{
+	 	position: absolute;
+	 	width: 50%;
+	 	height: 50%;
+	 	top: 25%;
+	 	left: 25%;
+	 	border-radius: 50%;
+	 	background: #000000;
+	 }
+	 .lid{
+	 	position: absolute;
+	 	width: 105%;
+	 	height: 105%;
+	 	top: -2.5%;
+	 	left: -2.5%;
+	 	border-radius: 50%;
+	 	background: #958E5A;
+	 	-webkit-clip-path: polygon(0 0,100% 0,100% 50%,0 50%);
+	 	clip-path: polygon(0 0,100% 0,100% 50%,0 50%);
+	 }
+	 .left-tooth{
+	 	position: absolute;
+	 	width: 10%;
+	 	height: 20%;
+	 	left: 39%;
+	 	bottom: 12%;
+	 	background: white;
+	 	border-style: solid;
+	 	border-width: 3px;
+	 }
+	 .right-tooth{
+	 	position: absolute;
+	 	width: 10%;
+	 	height: 20%;
+	 	right: 39%;
+	 	bottom: 12%;
+	 	background: white;
+	 	border-style: solid;
+	 	border-width: 3px;
+
+	 }
+	 .left-moustache{
+	 	position: absolute;
+	 	width: 35%;
+	 	height: 20%;
+	 	left: 15%;
+	 	bottom: 25%;
+	 	background: #958E5A;
+	 	border-radius: 40%;
+	 }
+	 .left-cutter1{
+	 	position: absolute;
+	 	width: 22%;
+	 	height: 17%;
+	 	left: 11.5%;
+	 	bottom: 30%;
+	 	background: #D0782A;
+	 	border-radius: 50%;
+	 	-webkit-transform: rotate(-33deg);
+	 }
+	 .left-cutter2{
+	 	position: absolute;
+	 	width: 15%;
+	 	height: 10%;
+	 	left: 30%;
+	 	bottom: 38%;
+	 	background: #D0782A;
+	 }
+	 .left-cutter3{
+	 	position: absolute;
+	 	width: 18%;
+	 	height: 18%;
+	 	left: 32%;
+	 	bottom: 26%;
+	 	background: #958E5A;
+	 	border-radius: 50%;
+	 }
+	 .right-moustache{
+	 	position: absolute;
+	 	width: 35%;
+	 	height: 20%;
+	 	right: 15%;
+	 	bottom: 25%;
+	 	background: #958E5A;
+	 	border-radius: 40%;
+	 }
+	 .right-cutter1{
+	 	position: absolute;
+	 	width: 22%;
+	 	height: 17%;
+	 	right: 11.5%;
+	 	bottom: 30%;
+	 	background: #D0782A;
+	 	border-radius: 50%;
+	 	-webkit-transform: rotate(33deg);
+	 }
+	 .right-cutter2{
+	 	position: absolute;
+	 	width: 15%;
+	 	height: 10%;
+	 	right: 30%;
+	 	bottom: 38%;
+	 	background: #D0782A;
+	 }
+	 .right-cutter3{
+	 	position: absolute;
+	 	width: 18%;
+	 	height: 18%;
+	 	right: 32%;
+	 	bottom: 26%;
+	 	background: #958E5A;
+	 	border-radius: 50%;
+	 }
+	 .nose{
+	 	position: absolute;
+	 	width: 15%;
+	 	height: 10%;
+	 	left: 42.5%;
+	 	top: 52%;
+	 	background: brown;
+	 	border-radius: 50%;
+	 	z-index: 3;
+	 }
+	 .left-eyebrow{
+	 	position: absolute;
+	 	width: 12%;
+	 	height: 3%;
+	 	top: 23%;
+	 	left: 31%;
+	 	background-color: #958E5A;
+
+	 }
+	 .right-eyebrow{
+	 	position: absolute;
+	 	width: 12%;
+	 	height: 3%;
+	 	top: 23%;
+	 	right: 31%;
+	 	background-color: #958E5A;
+	 }
+	 .smoke-pipe{
+	 	position: absolute;
+	 	width: 30%;
+	 	height: 30%;
+	 	left: 8%;
+	 	bottom: -3%;
+	 	background: black;
+	 	border-radius: 50%;
+	 	-webkit-clip-path: polygon(0 50%,100% 50%,100% 100%,0% 100%);
+	 	clip-path: polygon(0 50%,100% 50%,100% 100%,0% 100%);
+
+	 }
+	 .smoke-cutter{
+	 	position: absolute;
+	 	width: 13%;
+	 	height: 13%;
+	 	left: 21%;
+	 	bottom: 5.7%;
+	 	background: #DDCA66;
+	 	border-radius: 50%;
+	 	-webkit-clip-path: polygon(0 50%,100% 50%,100% 100%,0% 100%);
+	 	clip-path: polygon(0 50%,100% 50%,100% 100%,0% 100%);
+	 }
+	 .smoke-pipe-tube{
+	 	position: absolute;
+	 	width:3.9%;
+	 	height: 20%;
+	 	left: 34%;
+	 	bottom: 10%;
+	 	background: black;
+	 }
+	 .shapka-stick-1{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 31.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	 .shapka-stick-2{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 31.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	 .shapka-stick-2{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 35.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	 .shapka-stick-3{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 39.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	 .shapka-stick-4{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 43.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	 .shapka-stick-5{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 47.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	 .shapka-stick-6{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 51.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	  .shapka-stick-7{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 55.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	  .shapka-stick-8{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 59.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	  .shapka-stick-9{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 63.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+	  .shapka-stick-10{
+	 	position: absolute;
+	 	width: 1%;
+	 	height: 9%;
+	 	left: 67.5%;
+	 	top: 10.5%;
+	 	background: #7A1F1F;
+	 	border-radius: 20%;
+	 }
+</style>
+</head>
+<body>
+    <div class="box">
+    	<div class="base-circle">
+    		<div class="whole-head">
+    			<div class="left-ear">
+    				<div class="left-ear-base"></div>
+    				<div class="left-ear-bottom">
+    					<div class="tunnel"></div></div>
+    			</div>
+    			<div class="right-ear"></div>
+    			<div class="face-vertical"></div>
+    			<div class="face-bottom">
+    				<div class="left-triangles"></div>
+    				<div class="right-triangles"></div></div>
+    			<div class="shapka-rectangle"></div>
+    			<div class="shapka-hemisphere"></div>
+    			<div class="shapka-stick-1"></div>
+    			<div class="shapka-stick-2"></div>
+    			<div class="shapka-stick-3"></div>
+    			<div class="shapka-stick-4"></div>
+    			<div class="shapka-stick-5"></div>
+    			<div class="shapka-stick-6"></div>
+    			<div class="shapka-stick-7"></div>
+    			<div class="shapka-stick-8"></div>
+    			<div class="shapka-stick-9"></div>
+    			<div class="shapka-stick-10"></div>
+    			    <div class="left-eyebrow"></div>
+    			    <div class="right-eyebrow"></div>
+    			    <div class="left-g"></div>
+    			    <div class="right-g"></div>
+    			    <div class="middle-bar"></div>
+    			    <div class="left-eye">
+    			    	<div class="pupil"></div>
+    			    	<div class="lid"></div>
+    			    </div>
+    			    <div class="right-eye">
+    			    	<div class="pupil"></div>
+    			    	<div class="lid"></div>
+    			    </div>
+    			    <div class="smoke-pipe"></div>
+    			    <div class="smoke-cutter"></div>
+    			    <div class="smoke-pipe-tube"></div>
+    			    <div class="left-tooth"></div>
+    			    <div class="right-tooth"></div>
+    			    <div class="left-moustache"></div>
+    			    <div class="left-cutter1"></div>
+    			    <div class="left-cutter2"></div>
+    			    <div class="left-cutter3"></div>
+    			    <div class="right-moustache"></div>
+    			    <div class="right-cutter1"></div>
+    			    <div class="right-cutter2"></div>
+    			    <div class="right-cutter3"></div>
+    			    <div class="nose"></div>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>
